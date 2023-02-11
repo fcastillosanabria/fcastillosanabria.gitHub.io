@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/logoLinux.png">
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="css/cursorStyle.css">
+</head>
+<body>
+
+    <!--Cursor Rojo-->
+    <div class="cursor3"></div>
+    <script>
+        const cursor3 = document.querySelector('.cursor3');
+
+        document.addEventListener('mousemove', e => {
+            cursor3.setAttribute("style", "top: " + (e.pageY -1) + "px; left: "+ (e.pageX -2) + "px;" )
+        })
+    </script>   
+
+    <!--Cursor Amarillo-->
+    <div class="cursor2"></div>
+    <script>
+        const cursor2 = document.querySelector('.cursor2');
+
+        document.addEventListener('mousemove', e => {
+            cursor2.setAttribute("style", "top: " + (e.pageY -1) + "px; left: "+ (e.pageX -2) + "px;" )
+        })
+    </script>
+
+    <!--Cursor Verde-->
+    <div class="cursor"></div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.setAttribute("style", "top: " + (e.pageY -1) + "px; left: "+ (e.pageX -2) + "px;" )
+        })
+    </script>
+
+
+    <!--Barra Menú-->
+    <header>
+        <div class="container">
+            <p class="logo"><a href="index.html"><img src="img/logoUbuntu.png" height="90" width="250"></a></p>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="contactame.html">Contactanos</a>
+                <a href="ayuda.html">Ayuda</a>
+            </nav>
+        </div>
+    </header>
+
+<!--Inicio Codigo de esta pagina-->
+<section id="errorLinux">
+    <div class="container">
+        <div class="img-container"></div>
+        <div class="texto">
+            <h2>ERROR <span class="color-acento">404</span></h2>
+            <p>Not Found</p>
+        </div>
+    </div>
+</section>
+
+    <!--Codigo de audio de fondo-->
+    <center>
+        <audio  autoplay="autoplay, =50" loop="loop" autoplay >
+        <source src="audio/C418 - Haggstrom - Minecraft Volume Alpha.mp3" type="audio/mpeg">
+        </audio>
+    </center>
+<!--Final Codigo de esta pagina-->
+
+    <footer>
+        <div class="container">
+        <div class="redesSociales">
+            <p>
+                <a href="https://www.facebook.com/tucheroka.69" target="_blank"><img src="img/facebook.png" height="50px">
+                <a href="https://www.instagram.com/franciscastillo.69/" target="_blank"><img src="img/instagram.png" height="50px">
+                <a href="https://www.instagram.com/franciscastillo.69/" target="_blank"><img src="img/whatsapp.png" height="50px">
+            </p>
+        </div>
+            <p>&copy; franciscastillo.69</p>
+        </div>
+    </footer>
+</body>
+</html>

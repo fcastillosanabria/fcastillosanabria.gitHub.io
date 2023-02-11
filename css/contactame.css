@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .5s linear;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+h1{ font-size: 3.5em;}
+h2{ font-size: 2.7em;}
+h3{ font-size: 2em;}
+p{ font-size: 1.25em;}
+ul{ list-style: none;}
+li{ font-size: 1.25em;}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+
+.color-acento{ color:rgba(247, 193, 86); }
+
+header{
+    background-color: rgb(0, 0, 0);
+    
+}
+
+header .logo{
+    padding: 25px 30px;
+}
+
+header .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+header a:hover{
+    color: rgb(254, 254, 1);
+    font-size: 1.25em;
+}
+
+#contactanos .container{
+    text-align: center;
+    padding: 200px 12px;
+}
+
+#contactanos .img-container{
+    background-image: url("/img/imagenContactanos.png");
+    background-size: cover;
+    background-position: center center;
+    height: 500px;
+    width: 400px; 
+}
+
+#contactanos .img-container:hover{
+    background-image: url("/img/contactanos.png");
+}
+
+#contactanos .texto{
+    width: 50%;
+    max-width: 600px;
+    text-align: initial;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form{
+    background-color: #fff;
+    width: 90%;
+    margin: auto;
+    max-width: 400px;
+    border-radius: 1em;
+    padding: 3.5em 1.5em;
+}
+
+.form__container{
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    grid-auto-columns: 100%;
+}
+
+.form__title{
+    text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: .4em;
+}
+
+.form__title:hover{
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: .4em;
+}
+
+.form__input{
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .8em 1em;
+    outline: none;
+    border: none;
+    border: 1px solid #bbb0b0;
+    border-radius: 0.2em;
+}
+
+.form__input--message{
+    resize: none;
+    padding: 1.8em 1em;
+    margin-bottom: .5em;
+}
+
+.form__cta{
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: 300;
+    padding: .7em 0;
+    border-radius: .2em;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.form__cta:hover{
+    font-family: inherit;
+    font-size: 1.25em;
+    background-color: rgb(255, 221, 0);
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+footer{
+    background-color: rgb(0, 0, 0);
+}
+
+footer p{
+    margin: 0;
+    padding: 12px;
+    color: rgb(255, 255, 255);
+}
+
+.redessociales{
+    height: 100px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+footer .container{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 850px){
+    header{
+        position: fixed;
+        width: 100%;
+    }
+
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+    #contactanos .container{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #final h2{
+        font-size: 5em;
+    }
+
+    #final button{
+        font-size: 2em;
+    }
+
+
+    .form{
+        background-color: #fff;
+        width: 90%;
+        margin: auto;
+        max-width: 400px;
+        border-radius: 1em;
+        padding: 3.5em 1.5em;
+    }
+    
+    .form__container{
+        width: 100%;
+        display: grid;
+        gap: 1em;
+        grid-auto-columns: 100%;
+    }
+    
+    .form__title{
+        text-align: center;
+        font-size: 1.9rem;
+        margin-bottom: .4em;
+    }
+    
+    .form__input{
+        font-family: inherit;
+        font-size: 1rem;
+        padding: .8em 1em;
+        outline: none;
+        border: none;
+        border: 1px solid #bbb0b0;
+        border-radius: 0.2em;
+    }
+    
+    .form__input--message{
+        resize: none;
+        padding: 1.8em 1em;
+        margin-bottom: .5em;
+    }
+    
+    .form__cta{
+        font-family: inherit;
+        font-size: 1rem;
+        background-color: black;
+        color: white;
+        border: none;
+        font-weight: 300;
+        padding: .7em 0;
+        border-radius: .2em;
+        cursor: pointer;
+        font-weight: 400;
+    }
+    
+
+    footer .container{
+        justify-items: center;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form{
+        background-color: #fff;
+        width: 90%;
+        margin: auto;
+        max-width: 400px;
+        border-radius: 1em;
+        padding: 3.5em 1.5em;
+    }
+
+    .form__container{
+        width: 100%;
+        display: grid;
+        gap: 1em;
+        grid-auto-columns: 100%;
+    }
+
+    .form__title{
+        text-align: center;
+        font-size: 1.9rem;
+        margin-bottom: .4em;
+    }
+
+    .form__input{
+        font-family: inherit;
+        font-size: 1rem;
+        padding: .8em 1em;
+        outline: none;
+        border: none;
+        border: 1px solid #bbb0b0;
+        border-radius: 0.2em;
+    }
+
+    .form__input--message{
+        resize: none;
+        padding: 1.8em 1em;
+        margin-bottom: .5em;
+    }
+
+    .form__cta{
+        font-family: inherit;
+        font-size: 1rem;
+        background-color: black;
+        color: white;
+        border: none;
+        font-weight: 300;
+        padding: .7em 0;
+        border-radius: .2em;
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+
+    footer .container{
+        justify-items: center;
+        justify-content: space-around;
+    }
+}
