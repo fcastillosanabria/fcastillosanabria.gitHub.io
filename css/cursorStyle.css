@@ -8,12 +8,6 @@
     }
 } */
 
-@media (max-width: 1200px) {
-    body{
-        background: green;
-    }
-}
-
 @media (min-width: 1200px) {
     .cursor {
         z-index: 1000;
