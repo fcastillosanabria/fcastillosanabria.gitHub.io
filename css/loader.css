@@ -65,7 +65,8 @@
 /* CARGA LINUX */
 #contenedor {
     width:200px;
-        height:200px;
+    height:200px;
+    z-index: -1;
 }
 .cargalinux,
 .cargalinux:before,
