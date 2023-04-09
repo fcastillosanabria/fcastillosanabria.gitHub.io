@@ -156,7 +156,7 @@ footer .container{
     align-items: center;
 }
 
-
+/* PANTALLA MEDIANAS */
 @media only screen and (min-width: 650px){
     header{
         position: fixed;
@@ -212,6 +212,7 @@ footer .container{
     }
 }
 
+/* PANTALLA GRANDES */
 @media only screen and (min-width: 1100px){
 
     body{
@@ -233,9 +234,14 @@ footer .container{
         transition:all .1s linear;
     }
     
+    footer{
+        background-color: rgb(0, 0, 0);
+        width: 100%;
+    }
 
     footer .container{
         justify-items: center;
         justify-content: space-around;
+        width: 100%;
     }
 }
