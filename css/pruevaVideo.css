@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+video{
+    position: sticky;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    top: 19%;
+    left: 50%;
+    
+    transform: translateX(-50) translate(-50%);
+
+    z-index: -1;
+}

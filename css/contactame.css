@@ -22,6 +22,18 @@ body{
     margin: 0;
     background-image: url(/img/941898.jpg);
     /*overflow: hidden;*/
+    justify-content: flex-end;
+    position: relative;
+}
+
+video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 105%;
+    min-height: 100%;
+    transform: translateX(calc((100% - 100vw) / 2));
+    z-index: -2;
 }
 
 h1{ font-size: 3.5em;}
@@ -77,10 +89,6 @@ header a:hover{
     padding: 100px 12px;
 }
 
-#contactanos .img-container:hover{
-    background-image: url("/img/contactanos.png");
-}
-
 #contactanos .texto{
     width: 100%;
     text-align: initial;
@@ -89,7 +97,7 @@ header a:hover{
     justify-content: center;
 }
 
-.nube{
+/* .nube{
     top: 228px;
     width: 210PX;
     height: 97px;
@@ -129,16 +137,15 @@ header a:hover{
     animation: movimiento1 60s infinite;
 }
 
-
 @keyframes movimiento1{
-    from { margin-left: 100%; }
+    from { margin-left: 35%; }
     to { margin-left: -30%; }
 }
 
 @keyframes movimiento2{
     from { margin-left: -30%; }
-    to { margin-left: 100%; }
-}
+    to { margin-left: 45%; }
+} */
 
 .form{
     background-color: #fff;
@@ -255,6 +262,10 @@ footer .container{
         object-fit: cover;
     }
 
+    #contactanos .img-container:hover{
+        background-image: url("/img/contactanos.png");
+    }
+
     #contactanos .container{
         display: flex;
         justify-content: space-evenly;
@@ -335,12 +346,15 @@ footer .container{
         background-size: cover;
         background-position: center center;
         width: 100%;
-        height: 371px;
-        object-fit: cover;
+        height: 545px;
+    }
+
+    #contactanos .img-container:hover{
+        background-image: url("/img/contactanos.png");
     }
 
     .nube{
-        top: 320px;
+        top: 372px;
         width: 220PX;
         height: 82px;
         background-image: url(/img/nube.png);
@@ -358,22 +372,44 @@ footer .container{
         position: relative;
         animation: movimiento2 60s infinite;
     }
+
+    .nube3{
+        top: 377px;
+        width: 120PX;
+        height: 50px;
+        background-image: url(/img/nube.png);
+        background-size: 100% 100%;
+        position: relative;
+        animation: movimiento2 40s infinite;
+    }
     
+    .nube4{
+        top: 497px;
+        width: 120PX;
+        height: 50px;
+        background-image: url(/img/nube.png);
+        background-size: 100% 100%;
+        position: relative;
+        animation: movimiento1 60s infinite;
+    }
     
     @keyframes movimiento1{
-        from { margin-left: 100%; }
+        from { margin-left: 75%; }
         to { margin-left: -30%; }
     }
     
     @keyframes movimiento2{
         from { margin-left: -30%; }
-        to { margin-left: 100%; }
+        to { margin-left: 70%; }
     }
 
     #contactanos .container{
         text-align: center;
         padding: 200px 12px;
+        padding-top: 90px;
     }
+
+    height: 459px;
 
     .form{
         background-color: #fff;
