@@ -84,17 +84,10 @@ header a:hover{
     width: 518px;
 }
 
-#resumenError .img-container:hover{
-    height: 538px;
-    width: 538px;
-    transition:all .1s linear;
-}
-
 #resumenError .texto{
-    width: 50%;
-    max-width: 600px;
-    text-align: initial;
-    padding-left: 30px;
+    width: 100%;
+    text-align: justify;
+    padding: 0px 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,10 +113,9 @@ header a:hover{
 }
 
 #canalYouTube .texto{
-    width: 50%;
-    max-width: 600px;
-    text-align: initial;
-    padding-left: 30px;
+    width: 100%;
+    text-align: justify;
+    padding: 0px 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,10 +166,42 @@ footer .container{
         display: flex;
         justify-content: space-evenly;
     }
+    
+    #resumenError .img-container:hover{
+        height: 538px;
+        width: 538px;
+        transition:all .1s linear;
+    }
+    
+    #resumenError .texto{
+        width: 50%;
+        text-align: initial;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
 
     #canalYouTube .container{
         display: flex;
         justify-content: space-evenly;
+    }
+
+    #canalYouTube .img-container:hover{
+        transform: perspective(900px) rotateY(15deg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    
+    #canalYouTube .texto{
+        width: 50%;
+        text-align: initial;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     #final h2{
@@ -195,6 +219,20 @@ footer .container{
 }
 
 @media (min-width: 1200px) {
+
+    #resumenError .img-container:hover{
+        height: 538px;
+        width: 538px;
+        transition:all .1s linear;
+    }
+
+    #canalYouTube .img-container:hover{
+        transform: perspective(900px) rotateY(15deg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
     footer .container{
         justify-items: center;
         justify-content: space-around;

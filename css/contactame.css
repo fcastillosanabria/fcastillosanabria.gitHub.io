@@ -22,18 +22,6 @@ body{
     margin: 0;
     background-image: url(/img/941898.jpg);
     /*overflow: hidden;*/
-    justify-content: flex-end;
-    position: relative;
-}
-
-video{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 105%;
-    min-height: 100%;
-    transform: translateX(calc((100% - 100vw) / 2));
-    z-index: -2;
 }
 
 h1{ font-size: 3.5em;}
@@ -408,8 +396,6 @@ footer .container{
         padding: 200px 12px;
         padding-top: 90px;
     }
-
-    height: 459px;
 
     .form{
         background-color: #fff;
