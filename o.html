@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe a pantalla completa</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #result {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<iframe id="result" srcdoc="<!DOCTYPE html>
+    <html lang=&quot;en&quot; >
+    
+    <head>
+      <meta charset=&quot;UTF-8&quot;>
+
+        <link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+    
+        <meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+    
+        <link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+    
+        <link rel=&quot;mask-icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg&quot; color=&quot;#111&quot; />
+        <script src=&quot;https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js&quot;></script>
+      <title>CodePen - Resizable Terminal + shell.js css</title>
+    
+        <link rel=&quot;canonical&quot; href=&quot;https://codepen.io/jcubic/pen/WZvYGj&quot;>
+      
+      
+      <link rel='stylesheet' href='https://unpkg.com/shell.js@1.0.5/dist/css/shell.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css'>
+    <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css'>
+    <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+      
+    <style>
+    form {
+        margin: 10px;
+    }
+    body .shell {
+        width: 400px;
+        height: 200px;
+    }
+    body .shell .terminal {
+        height: calc(100% - 29px);
+        --size: 1.1;
+        /*
+         * padding bottom 0 on terminal and margin
+         * on .cmd will be in version 2.0.1
+         * that fixes FireFox issue
+         */
+        padding-bottom: 0;
+    }
+    body .shell .terminal .cmd {
+        margin-bottom: 10px;
+    }
+    .shell .typed-cursor, .shell .cursor {
+        background: transparent;
+    }
+    .shell > .status-bar .title {
+        cursor: move;
+    }
+    /*
+     * fix to shell.js to center title to free space
+     */
+    .shell.windows .status-bar .title {
+        right: 106px;
+    }
+    @supports (--css: variables) {
+        .shell .terminal {
+            --color: #aaa;
+        }
+        .shell.ubuntu .terminal {
+            --background: #300924;
+        }
+        .shell.osx .content.terminal {
+            --background: #222;
+        }
+        .shell.light .content.terminal {
+            --background: white;
+            --color: black;
+        }
+        /*
+        * windows and custom are the last ones so
+        * they don't get overwritten by light
+        */
+        .shell.windows .content.terminal {
+            --background: black;
+            --color: white;
+            --animation: terminal-underline;
+        }   
+        .shell.custom .content.terminal {
+            --background: #292929;
+            --color: #aaa;
+        }
+    }
+    /*
+     * overwrite shell.js style because shell.js   
+     * selectors are stronger then terminal ones
+     */
+    .cmd span.cursor {
+        animation: none;
+        width: auto;
+        background-color: var(--background, #000);
+    }
+    .shell:not(.light) terminal.content,
+    .shell.osx.dark .content,
+    .shell.ubuntu:not(.light) .content {
+        background-color: var(--background, #222) !important;
+    }
+    .shell .terminal.content {
+        font-size: 12px;
+    }
+    .cmd {
+        background-color: inherit;
+    }
+    @supports (--css: variables) {
+        .shell .terminal.content {
+            font-size: calc(var(--size, 1) * 12px);
+        }
+    }
+    /* fix for Firefox */
+    .terminal > .resizer, .terminal > .font .resizer {
+        visibility: visible;
+        pointer-events: none;
+    }
+    .terminal::-webkit-scrollbar-track
+    {
+        border: 1px solid var(--color, #aaa);
+        background-color: var(--background);
+    }
+    .terminal::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: var(--background);
+    }
+    .terminal::-webkit-scrollbar-thumb
+    {
+        background-color: var(--color, #aaa);
+    }
+    </style>
+    
+      <script>
+      window.console = window.console || function(t) {};
+    </script>
+    
+      
+      
+    </head>
+    
+    <body translate=&quot;no&quot;>
+      <form>
+        <label for=&quot;type&quot;>Window Type:</label>
+        <select id=&quot;type&quot;>
+            <option value=&quot;osx&quot;>osx</option>
+            <option value=&quot;ubuntu&quot; selected>ubuntu</option>
+            <option value=&quot;windows&quot;>windows</option>
+            <option value=&quot;custom&quot;>custom</option>
+        </select>
+        <label for=&quot;dark&quot;>dark</label>
+        <input type=&quot;checkbox&quot; id=&quot;dark&quot; checked/>
+    </form>
+    <!-- shell.js terminal window -->
+    <div class=&quot;shell ubuntu dark shadow&quot;>
+        <div class=&quot;status-bar&quot;>
+            <div class=&quot;buttons&quot;>
+                <a href=&quot;javascript:;&quot; class=&quot;close&quot; title=&quot;Close&quot;>
+                    <i class=&quot;fa fa-times&quot;></i>
+                </a>
+                <a href=&quot;javascript:;&quot; class=&quot;minimize&quot; title=&quot;Minimize&quot;>
+                    <i class=&quot;fa fa-minus&quot;></i>
+                </a>
+                <a href=&quot;javascript:;&quot; class=&quot;enlarge&quot; title=&quot;Enlarge&quot;>
+                    <i class=&quot;fa fa-plus&quot;></i>
+                </a>
+            </div>
+            <div class=&quot;title&quot;>user@host: ~</div>
+        </div>
+        <div class=&quot;content&quot;></div>
+    </div>
+      <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js'></script>
+    <script src='https://unpkg.com/jquery.terminal/js/jquery.mousewheel-min.js'></script>
+    <script src='https://unpkg.com/js-polyfills/keyboard.js'></script>
+    <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
+    <script src='https://codepen.io/jcubic/pen/WZjbgq.js'></script>
+    <script src='https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js'></script>
+    <script src='https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/aaronbarker/css-variables-polyfill@master/css-var-polyfill.js'></script>
+          <script id=&quot;rendered-js&quot; >
+    var shell = $('.shell').resizable({
+      minHeight: 108,
+      minWidth: 250 }).
+    draggable({
+      handle: '> .status-bar .title' });
+    
+    // Fake in memory filesystem
+    var fs = {
+        'projects': {
+            'hello.txt': 'Este archivo se llama hello.txt',
+            'index.html': 'Página web de prueba',
+            'foo.txt': 'Hello, World!',
+            'bar.txt': 'Wellcome to the bar',
+            'terminal': {
+                'foo': {
+                    'bar.txt': 'hello bar',
+                    'baz.txt': 'baz content'
+                }
+            }
+        },
+        'desktop': {
+            // Agrega los archivos o carpetas en el escritorio aquí
+        }
+    };
+    
+    
+    
+    
+    
+    var path = [];
+    var cwd = fs;
+    function restore_cwd(fs, path) {
+      path = path.slice();
+      while (path.length) {if (window.CP.shouldStopExecution(0)) break;
+        var dir_name = path.shift();
+        if (!is_dir(fs[dir_name])) {
+          throw new Error('Internal Error Invalid directory ' +
+          $.terminal.escape_brackets(dir_name));
+        }
+        fs = fs[dir_name];
+      }window.CP.exitedLoop(0);
+      return fs;
+    }
+    function is_dir(obj) {
+      return typeof obj === 'object';
+    }
+    function is_file(obj) {
+      return typeof obj === 'string';
+    }
+    var commands = {
+      cd: function (dir) {
+        this.pause();
+        if (dir === '/') {
+          path = [];
+          cwd = restore_cwd(fs, path);
+        } else if (dir === '..') {
+          if (path.length) {
+            path.pop(); // remove from end
+            cwd = restore_cwd(fs, path);
+          }
+        } else if (dir.match(/\//)) {
+          var p = dir.replace(/\/$/, '').split('/').filter(Boolean);
+          if (dir[0] !== '/') {
+            p = path.concat(p);
+          }
+          cwd = restore_cwd(fs, p);
+          path = p;
+        } else if (!is_dir(cwd[dir])) {
+          this.error($.terminal.escape_brackets(dir) + ' is not a directory');
+        } else {
+          cwd = cwd[dir];
+          path.push(dir);
+        }
+        this.resume();
+      },
+      ls: function () {
+        if (!is_dir(cwd)) {
+          throw new Error('Internal Error Invalid directory');
+        }
+        var dir = Object.keys(cwd).map(function (key) {
+          if (is_dir(cwd[key])) {
+            return key + '/';
+          }
+          return key;
+        });
+        this.echo(dir.join('\n'));
+      },
+      cat: function (file) {
+        if (!is_file(cwd[file])) {
+          this.error($.terminal.escape_brackets(file) + &quot; don't exists&quot;);
+        } else {
+          this.echo(cwd[file]);
+        }
+      },
+      help: function () {
+        this.echo('Available commands: ' + Object.keys(commands).join(', '));
+      } };
+    
+    function completion(string, callback) {
+      var command = this.get_command();
+      var cmd = $.terminal.parse_command(command);
+      function dirs(cwd) {
+        return Object.keys(cwd).filter(function (key) {
+          return is_dir(cwd[key]);
+        }).map(function (dir) {
+          return dir + '/';
+        });
+      }
+      if (cmd.name === 'ls') {
+        callback([]);
+      } else if (cmd.name === 'cd') {
+        var p = string.split('/').filter(Boolean);
+        if (p.length === 1) {
+          if (string[0] === '/') {
+            callback(dirs(fs));
+          } else {
+            callback(dirs(cwd));
+          }
+        } else {
+          if (string[0] !== '/') {
+            p = path.concat(p);
+          }
+          if (string[string.length - 1] !== '/') {
+            p.pop();
+          }
+          var prefix = string.replace(/\/[^/]*$/, '');
+          callback(dirs(restore_cwd(fs, p)).map(function (dir) {
+            return prefix + '/' + dir;
+          }));
+        }
+      } else if (cmd.name === 'cat') {
+        var files = Object.keys(cwd).filter(function (key) {
+          return is_file(cwd[key]);
+        });
+        callback(files);
+      } else {
+        callback(Object.keys(commands));
+      }
+    }
+    var term = $('.content').terminal(commands, {
+      prompt: prompt(),
+      completion: completion,
+      // detect iframe codepen preview
+      enabled: $('body').attr('onload') === undefined });
+    
+    // for codepen preview
+    if (!term.enabled()) {
+      term.find('.cursor').addClass('blink');
+    }
+    function prompt(type) {
+      return function (callback) {
+        var prompt;
+        if (type === 'windows') {
+          prompt = 'C:\\' + path.join('\\') + '> ';
+        } else {
+          prompt = 'user@host:/' + path.join('/') + '$ ';
+        }
+        $('.title').html(prompt);
+        callback(prompt);
+      };
+    }
+    $('#type').on('change', function () {
+      shell.removeClass('osx windows ubuntu default custom').addClass(this.value);
+      term.toggleClass('underline-animation', this.value == 'windows');
+      term.set_prompt(prompt(this.value));
+    });
+    $('#dark').on('change', function () {
+      shell.removeClass('dark light');
+      if (this.checked) {
+        shell.addClass('dark');
+      } else {
+        shell.addClass('light');
+      }
+    });
+    $('#type, #dark').on('change', function () {
+      setTimeout(function () {
+        term.focus();
+      }, 400);
+    });
+    github &amp;&amp; github('jcubic/jquery.terminal');
+    //# sourceURL=pen.js
+        </script>
+    
+      
+
+  </body>
+    
+    </html>

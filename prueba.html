@@ -3,20 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <link rel="icon" type="image/png" sizes="192x192" href="img/logoLinux.png">
-    <title>Error</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/cursorStyle.css">
-    <link rel="stylesheet" href="css/loader.css">
-
+    <meta name="apple-mobile-web-app-title" content="CodePen">
     <script
         src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <title>prueba</title>
     <link rel="canonical" href="https://codepen.io/jcubic/pen/WZvYGj">
     <link rel='stylesheet' href='https://unpkg.com/shell.js@1.0.5/dist/css/shell.min.css'>
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css'>
@@ -32,8 +22,8 @@
         }
 
         body .shell {
-            width: 420px;
-            height: 250px;
+            width: 400px;
+            height: 200px;
         }
 
         body .shell .terminal {
@@ -83,16 +73,6 @@
             .shell.light .content.terminal {
                 --background: white;
                 --color: black;
-            }
-
-            /* Estilos para el contenedor de la terminal */
-            .shell-container {
-                position: fixed;
-                top: 65%;
-                left: 73%;
-                right: 0;
-                z-index: 999;
-
             }
 
             /*
@@ -168,84 +148,6 @@
 </head>
 
 <body>
-
-    <!-- START Loader -->
-    <div class="container--loader">
-        <div class="loader"></div>
-    </div>
-    <!-- END Loader -->
-
-    <!--Cursor Rojo-->
-    <div class="cursor3"></div>
-    <script>
-        const cursor3 = document.querySelector('.cursor3');
-
-        document.addEventListener('mousemove', e => {
-            cursor3.setAttribute("style", "top: " + (e.pageY - 1) + "px; left: " + (e.pageX - 2) + "px;")
-        })
-    </script>
-
-    <!--Cursor Amarillo-->
-    <div class="cursor2"></div>
-    <script>
-        const cursor2 = document.querySelector('.cursor2');
-
-        document.addEventListener('mousemove', e => {
-            cursor2.setAttribute("style", "top: " + (e.pageY - 1) + "px; left: " + (e.pageX - 2) + "px;")
-        })
-    </script>
-
-    <!--Cursor Verde-->
-    <div class="cursor"></div>
-
-    <script>
-        const cursor = document.querySelector('.cursor');
-
-        document.addEventListener('mousemove', e => {
-            cursor.setAttribute("style", "top: " + (e.pageY - 1) + "px; left: " + (e.pageX - 2) + "px;")
-        })
-    </script>
-
-
-    <!--Barra Menú-->
-    <header>
-        <div class="container">
-            <p class="logo"><a href="index.html"><img src="img/logoUbuntu.png" height="90" width="250"></a></p>
-            <nav>
-                <a href="index.html">Inicio</a>
-                <a href="contactame.html">Contactanos</a>
-                <a href="ayuda.html">Ayuda</a>
-                <a href="login.html">Log in</a>
-            </nav>
-        </div>
-    </header>
-
-    <!--Inicio Codigo de esta pagina-->
-    <section id="errorLinux">
-        <div class="container">
-            <div class="img-container"></div>
-            <div class="texto">
-                <div id="contenedor">
-                    <div class="cargalinux" id="cargalinux"></div>
-                </div>
-                <h2>ERROR <span class="color-acento">404</span></h2>
-                <p>Not Found</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="img-container"></div>
-            <div class="texto">
-                <div id="contenedor">
-                    <div class="cargalinux" id="cargalinux"></div>
-                </div>
-                <h2>ERROR <span class="color-acento">404</span></h2>
-                <p>Not Found</p>
-                <img class="" alt="eric"
-                    src="https://res.cloudinary.com/dykoj2iuj/image/upload/v1677488009/stand-by_vqnz4v.gif">
-            </div>
-        </div>
-    </section>
-
     <form>
         <label for="type">Window Type:</label>
         <select id="type">
@@ -258,25 +160,24 @@
         <input type="checkbox" id="dark" checked />
     </form>
     <!-- shell.js terminal window -->
-    <div class="shell-container">
-        <div class="shell ubuntu dark shadow">
-            <div class="status-bar">
-                <div class="buttons">
-                    <a href="javascript:;" class="close" title="Close">
-                        <i class="fa fa-times"></i>
-                    </a>
-                    <a href="javascript:;" class="minimize" title="Minimize">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a href="javascript:;" class="enlarge" title="Enlarge">
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </div>
-                <div class="title">chatbot@host: ~</div>
+    <div class="shell ubuntu dark shadow">
+        <div class="status-bar">
+            <div class="buttons">
+                <a href="javascript:;" class="close" title="Close">
+                    <i class="fa fa-times"></i>
+                </a>
+                <a href="javascript:;" class="minimize" title="Minimize">
+                    <i class="fa fa-minus"></i>
+                </a>
+                <a href="javascript:;" class="enlarge" title="Enlarge">
+                    <i class="fa fa-plus"></i>
+                </a>
             </div>
-            <div class="content"></div>
+            <div class="title">user@host: ~</div>
         </div>
+        <div class="content"></div>
     </div>
+
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js'></script>
     <script src='https://unpkg.com/jquery.terminal/js/jquery.mousewheel-min.js'></script>
@@ -434,41 +335,11 @@
                 delete cwd[fileOrDir];
                 this.echo('Archivo o carpeta ' + fileOrDir + ' eliminado.');
             },
-            chatbot: function () {
-                this.error("Hi! I'm a chatbot. How can I help you?");
-                this.echo("Enter the corresponding number");
-                this.echo("1 === Brindame informacion basica sobre ti");
-                this.echo("2 === ¿Que tecnologias utilizas?");
-                this.error("You can invoke me again with the word \"chatbot\"");
-                this.echo("=============================================");
-                this.error("You can use my terminal with some basic commands ;)");
-            },
-            hola: function () {
-                this.echo("Hola, soy un chatbot,");
-                this.echo("elige una de las opciones:");
-                this.echo("1 === Brindame informacion basica sobre ti");
-                this.echo("2 === ¿Que tecnologias utilizas?");
-                this.error("You can invoke me again with the word \"chatbot\"");
-            },
-            1: function () {
-                this.echo("====================================");
-                this.echo("¡Hola! Soy Francis Castillo Sanabria");
-                this.echo("====================================");
-                this.echo("Soy un apasionado de la tecnologia con un fuerte compromiso con la excelencia y la innovación.");
-                this.echo("Mi viaje en el mundo de programador comenzó con una curiosidad insaciable y un deseo constante de aprender y crecer.");
-                this.echo("Desde mis primeros pasos en esta industria, me he dedicado a crear proyectos para mejorar mis habilidades");
-                this.echo("====================================");
-            },
-
-            2: function () {
-                this.echo("Respuesta a la segunda pregunta: Tecnologías que utilizo.");
-            }
         };
 
         function completion(string, callback) {
             var command = this.get_command();
             var cmd = $.terminal.parse_command(command);
-
             function dirs(cwd) {
                 return Object.keys(cwd).filter(function (key) {
                     return is_dir(cwd[key]);
@@ -476,7 +347,6 @@
                     return dir + '/';
                 });
             }
-
             if (cmd.name === 'ls') {
                 callback([]);
             } else if (cmd.name === 'cd') {
@@ -505,16 +375,9 @@
                 });
                 callback(files);
             } else {
-                var chatbotCommands = Object.keys(commands);
-                if (cmd.name === 'chatbot') {
-                    callback(chatbotCommands);
-                } else {
-                    callback(chatbotCommands.concat(Object.keys(commands)));
-                }
+                callback(Object.keys(commands));
             }
         }
-
-
 
         var term = $('.content').terminal(commands, {
             prompt: prompt(),
@@ -533,7 +396,7 @@
                 if (type === 'windows') {
                     prompt = 'C:\\' + path.join('\\') + '> ';
                 } else {
-                    prompt = 'chatbot@host:/' + path.join('/') + '$ ';
+                    prompt = 'user@host:/' + path.join('/') + '$ ';
                 }
                 $('.title').html(prompt);
                 callback(prompt);
@@ -560,42 +423,6 @@
         github & amp; github('jcubic/jquery.terminal');
         //# sourceURL=pen.js
     </script>
-
-    <!-- Código para iniciar la conversación con el chatbot automáticamente al cargar la página -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simular la invocación del chatbot al cargar la página
-            term.exec("chatbot");
-        });
-    </script>
-
-    <!--Codigo de audio de fondo-->
-    <center>
-        <audio autoplay="autoplay, =50" loop="loop" autoplay>
-            <source src="audio/C418 - Haggstrom - Minecraft Volume Alpha.mp3" type="audio/mpeg">
-        </audio>
-    </center>
-    <!--Final Codigo de esta pagina-->
-
-    <footer>
-        <div class="container">
-            <div class="redesSociales">
-                <p>
-                    <a href="https://www.facebook.com/tucheroka.69" target="_blank"><img src="img/facebook.png"
-                            height="50px">
-                        <a href="https://www.instagram.com/franciscastillo.69/" target="_blank"><img
-                                src="img/instagram.png" height="50px">
-                            <a href="https://www.instagram.com/franciscastillo.69/" target="_blank"><img
-                                    src="img/whatsapp.png" height="50px">
-                </p>
-            </div>
-            <p>&copy; franciscastillo.69</p>
-        </div>
-    </footer>
-
-    <!-- Mi script -->
-    <script src="script.js"></script>
-
 </body>
 
 </html>
