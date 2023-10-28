@@ -23,10 +23,6 @@
     <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css'>
     <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
     <style>
-        body {
-            background-color: rgb(94, 16, 97);
-        }
-
         form {
             margin: 10px;
         }
@@ -34,9 +30,10 @@
         body .shell {
             width: 420px;
             height: 250px;
+            transition: all .0s linear;
         }
 
-        body .shell .terminal {
+        .shell .terminal {
             height: calc(100% - 29px);
             --size: 1.1;
             /*
@@ -47,7 +44,7 @@
             padding-bottom: 0;
         }
 
-        body .shell .terminal .cmd {
+        .shell .terminal .cmd {
             margin-bottom: 10px;
         }
 
@@ -531,7 +528,7 @@
             return function (callback) {
                 var prompt;
                 if (type === 'windows') {
-                    prompt = 'C:\\' + path.join('\\') + '> ';
+                    prompt = 'C:' + '\\' + 'Users\\' + 'chatbot\\' + path.join('\\') + '> ';
                 } else {
                     prompt = 'chatbot@host:/' + path.join('/') + '$ ';
                 }
