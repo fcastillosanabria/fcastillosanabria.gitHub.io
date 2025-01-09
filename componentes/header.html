@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 fixed-top" style="background-color: #000000;">
+<nav class="navbar navbar-expand-lg navbar-dark px-5 py-2 fixed-top" style="background-color: #000000;">
     <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="#">
@@ -9,14 +9,24 @@
         <!-- Enlaces del Navbar (para pantallas grandes) -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="index.html">Inicio</a>
+                <!-- Dropdown Inicio -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="inicioDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Inicio
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="inicioDropdown">
+                        <li><a class="dropdown-item" href="index.html">Sobre mi</a></li>
+                        <li><a class="dropdown-item" href="index.html#proyectos">Proyectos Destacados</a></li>
+                        <li><a class="dropdown-item" href="servicios.html">Habilidades tecnicas</a></li>
+                        <li><a class="dropdown-item" href="servicios.html">Formación</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="contactame.html">Contactanos</a>
+                    <a class="nav-link text-white" href="contactame.html">Contactame</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="ayuda.html">Ayuda</a>
+                    <a class="nav-link text-white" href="publicaciones.html">Mis Publicaciones</a>
                 </li>
             </ul>
         </div>
@@ -45,7 +55,7 @@
                 <a class="nav-link" href="contactame.html">Contactanos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ayuda.html">Ayuda</a>
+                <a class="nav-link" href="publicaciones.html">Mis Publicaciones</a>
             </li>
         </ul>
     </div>
