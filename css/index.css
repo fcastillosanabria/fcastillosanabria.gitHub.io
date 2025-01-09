@@ -132,28 +132,7 @@ header a:hover{
 
 
 
-footer{
-    background-color: rgb(0, 0, 0);
-}
 
-footer p{
-    margin: 0;
-    padding: 12px;
-    color: rgb(255, 255, 255);
-}
-
-.redessociales{
-    height: 100px;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-footer .container{
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* PANTALLA MEDIANAS */
 @media only screen and (min-width: 650px){
@@ -201,10 +180,7 @@ footer .container{
         font-size: 2em;
     }
 
-    footer .container{
-        justify-items: center;
-        justify-content: space-around;
-    }
+
 }
 
 /* PANTALLA GRANDES */
@@ -222,16 +198,5 @@ footer .container{
         height: 550px;
         width: 450px;
         transition:all .1s linear;
-    }
-    
-    footer{
-        background-color: rgb(0, 0, 0);
-        width: 100%;
-    }
-
-    footer .container{
-        justify-items: center;
-        justify-content: space-around;
-        width: 100%;
     }
 }

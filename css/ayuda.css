@@ -120,29 +120,12 @@ header a:hover{
     justify-content: center;
 }
 
-
-footer{
-    background-color: rgb(0, 0, 0);
-}
-
-footer p{
-    margin: 0;
-    padding: 12px;
-    color: rgb(255, 255, 255);
-}
-
 .redessociales{
     height: 100px;
     justify-content: center;
     align-items: flex-end;
 }
 
-footer .container{
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 @media (min-width: 850px){
     header{
@@ -211,10 +194,6 @@ footer .container{
         font-size: 2em;
     }
 
-    footer .container{
-        justify-items: center;
-        justify-content: space-around;
-    }
 }
 
 @media (min-width: 1200px) {
@@ -232,8 +211,4 @@ footer .container{
         background-position: center;
     }
 
-    footer .container{
-        justify-items: center;
-        justify-content: space-around;
-    }
 }
