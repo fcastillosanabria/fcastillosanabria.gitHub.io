@@ -194,93 +194,115 @@
     <div id="header"></div>
 
     <!--Inicio Codigo de esta pagina-->
-<section class="hero-section d-flex align-items-center min-vh-100 text-white px-5 mt-5" id="sobreMi" style="background-color: #000000;">
-    <div class="container">
-        <div class="row">
-            <!-- Columna para el texto -->
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-                <h1 class="display-3 fw-bold mb-3">
-                    Hi,<br>
-                    I'm <span class="gradient-text">Francis</span>,<br>
-                    <span id="role">Programador</span> <!-- Esta es la parte que cambiará -->
-                </h1>
-                <div>
-                    <button class="btn btn-outline-info px-4 py-2 contact-btn">Ver CV</button>
-                    <button class="btn btn-outline-info px-4 py-2 contact-btn">Contact me!</button>
+    <section class="hero-section d-flex align-items-center min-vh-100 text-white px-5 mt-5" id="sobreMi"
+    style="background-color: #000000; z-index: 60; position: relative;">
+
+        <div class="container">
+            <div class="row">
+                <!-- Columna para el texto -->
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+                    <h1 class="display-3 fw-bold mb-3">
+                        Hi,<br>
+                        I'm <span class="gradient-text">Francis</span>,<br>
+                        <span id="role">Programador</span> <!-- Esta es la parte que cambiará -->
+                    </h1>
+                    <div>
+                        <button class="btn btn-outline-info px-4 py-2 contact-btn">Ver CV</button>
+                        <button class="btn btn-outline-info px-4 py-2 contact-btn">Contact me!</button>
+                    </div>
+                </div>
+                <!-- Columna para la imagen -->
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                    <img src="img/logoLinux.png" alt="Logo Linux" class="img-fluid">
                 </div>
             </div>
-            <!-- Columna para la imagen -->
-            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
-                <img src="img/logoLinux.png" alt="Logo Linux" class="img-fluid">
-            </div>
         </div>
-    </div>
-</section>
-<style>
-    /* Estilo para la animación de escritura y borrado */
-#role {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.1em solid white;
-    animation: typing 3s steps(20, end), blink 0.75s step-end infinite, erase 2.5s steps(20, end) 3s infinite;
-}
+    </section>
 
-/* Animación de escribir */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
+    <style>
+        /* Estilo para el texto y el cursor */
+        #role {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.1em solid white;
+        }
 
-/* Animación de borrado */
-@keyframes erase {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 0;
-    }
-}
+        /* Parpadeo del cursor */
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
 
-/* Parpadeo del cursor */
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-</style>
-<script>
-    const roles = ["Programador", "Analista", "Full Stack"];
-let index = 0;
-const roleElement = document.getElementById("role");
+        /* Agregar el parpadeo al cursor */
+        #role {
+            animation: blink 0.75s step-end infinite;
+        }
+    </style>
 
-// Función que cambia la palabra
-function changeRole() {
-    // Elimina la animación de borrado antes de cambiar la palabra
-    roleElement.style.animation = 'none';
-    roleElement.offsetHeight; // Trigger reflow para reiniciar la animación
+    <script>
+        const roles = [
+            "Programador",
+            "Desarrollador Frontend",
+            "Desarrollador Backend",
+            "Especialista en IA",
+            "Administrador de Sistemas",
+            "Gestor de Bases de Datos",
+            "Desarrollador Full Stack",
+            "Administrador"
+        ];
+        const roleElement = document.getElementById("role");
+        let index = 0;
 
-    // Cambia la palabra
-    roleElement.textContent = roles[index];
+        function typeEffect(text, element, speed, callback) {
+            let i = 0;
+            element.textContent = ''; // Vaciar contenido antes de escribir
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text[i];
+                    i++;
+                } else {
+                    clearInterval(interval); // Detener la animación cuando termine
+                    if (callback) callback(); // Llamar a la función de borrado después de escribir
+                }
+            }, speed);
+        }
 
-    // Añade la animación de borrado
-    roleElement.style.animation = 'typing 3s steps(20, end), blink 0.75s step-end infinite, erase 2.5s steps(20, end) 3s infinite';
+        function eraseEffect(element, speed, callback) {
+            const text = element.textContent;
+            let i = text.length;
+            const interval = setInterval(() => {
+                if (i > 0) {
+                    element.textContent = text.substring(0, i - 1);
+                    i--;
+                } else {
+                    clearInterval(interval); // Detener la animación cuando termine
+                    if (callback) callback(); // Llamar a la función de escritura después de borrar
+                }
+            }, speed);
+        }
 
-    // Actualiza el índice para la siguiente palabra
-    index = (index + 1) % roles.length;  // Alterna entre las palabras
-}
+        function changeRole() {
+            const word = roles[index];
+            const typingSpeed = 150; // Velocidad de escritura (ms por letra)
+            const erasingSpeed = 100; // Velocidad de borrado (ms por letra)
 
-// Cambia la palabra cada 3 segundos
-setInterval(changeRole, 6000);
+            // Escribir la palabra, luego borrarla
+            typeEffect(word, roleElement, typingSpeed, () => {
+                setTimeout(() => {
+                    eraseEffect(roleElement, erasingSpeed, () => {
+                        // Pasar a la siguiente palabra después de borrar
+                        index = (index + 1) % roles.length;
+                        changeRole();
+                    });
+                }, 1000); // Pausa de 1 segundo antes de borrar
+            });
+        }
 
-// Inicializa el primer cambio
-changeRole();
-
-</script>
+        // Iniciar la animación
+        changeRole();
+    </script>
 
     <!-- Sección Proyectos -->
     <section class="container py-5" id="proyectos">
@@ -434,7 +456,7 @@ changeRole();
 
 
     <!--ChatBot-->
-    <div class="options-shell-container">
+    <div class="options-shell-container" style="z-index: 50;">
         <form>
             <label for="type">Window Type:</label>
             <select id="type">
@@ -448,7 +470,7 @@ changeRole();
         </form>
     </div>
     <!-- shell.js terminal window -->
-    <div class="shell-container">
+    <div class="shell-container" style="z-index: 50;">
         <div class="shell ubuntu dark shadow">
             <div class="status-bar">
                 <div class="buttons">
@@ -769,6 +791,9 @@ changeRole();
 
     <!-- Footer -->
     <div id="footer"></div>
+
+    <!-- socialMedia -->
+    <div id="socialMedia"></div>
 
     <!-- Mi script -->
     <script src="script.js"></script>

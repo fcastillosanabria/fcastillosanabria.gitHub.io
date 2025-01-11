@@ -14,4 +14,5 @@ function loadComponent(selector, file) {
   // Cargar el header y el footer
   loadComponent('#header', 'componentes/header.html');
   loadComponent('#footer', 'componentes/footer.html');
+  loadComponent('#socialMedia', 'componentes/socialMedia.html');
   
