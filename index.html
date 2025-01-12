@@ -11,8 +11,6 @@
 
     <link rel="icon" type="image/png" sizes="192x192" href="img/logoLinux.png">
     <title>Error</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/loader.css">
 
     <!-- CDN Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -29,6 +27,22 @@
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css'>
     <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css'>
     <style>
+        /* Efecto hover para el card */
+        .card {
+            transition: all 0.3s ease;
+            /* Transición suave para todos los cambios */
+        }
+
+        /* Cambio de color de fondo y sombra al hacer hover */
+        .card:hover {
+            background-color: rgb(255, 245, 228) !important;
+            /* Forzar el cambio de fondo (rosado claro) */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Sombra más intensa */
+            transform: translateY(-5px);
+            /* Eleva un poco el card */
+        }
+
         form {
             margin: 10px;
             height: calc(100% - 29px);
@@ -180,9 +194,85 @@
     <script>
         window.console = window.console || function (t) { };
     </script>
+
+    <style>
+        /* Ocultar el puntero del mouse en toda la página */
+        * {
+            cursor: none !important;
+        }
+
+        /* Crear el aro más grande (externo) */
+        #outer-cursor {
+            position: fixed;
+            width: 50px;
+            /* Tamaño del aro grande */
+            height: 50px;
+            /* Tamaño del aro grande */
+            border: 4px solid var(--cursor-color, orange);
+            /* Aro exterior con borde */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            /* Asegura que esté por debajo del puntero */
+            transition: all 0.1s ease;
+        }
+
+        /* Crear el puntero (custom cursor) */
+        #custom-cursor {
+            position: fixed;
+            width: 25px;
+            height: 25px;
+            border: 4px solid var(--cursor-color, orange);
+            /* Color configurable */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            /* Asegura que esté por encima del aro */
+            transition: all 0.1s ease;
+        }
+
+        /* Asegurarse de que el puntero no se vea en enlaces y botones */
+        a,
+        button {
+            cursor: none !important;
+        }
+
+        /* Animación de pulso para el aro exterior */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                /* Aumento del tamaño */
+                opacity: 0.6;
+                /* Opacidad más baja */
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Clase de pulso activa */
+        .pulse-active {
+            animation: pulse 1s infinite;
+            /* Pulso que dura 1 segundo y se repite infinitamente */
+        }
+    </style>
+
+
 </head>
 
 <body>
+
+    <!-- Aro más grande -->
+    <div id="outer-cursor"></div>
+    <!-- El puntero pequeño dentro del aro -->
+    <div id="custom-cursor"></div>
 
     <!-- START Loader -->
     <div class="container--loader">
@@ -195,7 +285,7 @@
 
     <!--Inicio Codigo de esta pagina-->
     <section class="hero-section d-flex align-items-center min-vh-100 text-white px-5 mt-5" id="sobreMi"
-    style="background-color: #000000; z-index: 60; position: relative;">
+        style="background-color: #000000; z-index: 60; position: relative;">
 
         <div class="container">
             <div class="row">
@@ -207,16 +297,78 @@
                         <span id="role">Programador</span> <!-- Esta es la parte que cambiará -->
                     </h1>
                     <div>
-                        <a href="https://drive.google.com/file/d/1va5PcIJPkW5l8yKY_IlHYMKgeepQxFAT/view?usp=sharing" target="_blank">
-  <button class="btn btn-outline-info px-4 py-2 contact-btn">Ver CV</button>
-</a>
-                        <button class="btn btn-outline-info px-4 py-2 contact-btn">Contact me!</button>
+                        <a href="https://drive.google.com/file/d/1va5PcIJPkW5l8yKY_IlHYMKgeepQxFAT/view?usp=sharing"
+                            target="_blank">
+                            <button class="btn btn-outline-warning px-4 py-2 contact-btn">Ver CV</button>
+                        </a>
+                        <a href="contactame.html">
+                            <button class="btn btn-outline-warning px-4 py-2 contact-btn">Contact me!</button>
+                        </a>
                     </div>
                 </div>
                 <!-- Columna para la imagen -->
                 <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
-                    <img src="img/logoLinux.png" alt="Logo Linux" class="img-fluid">
+                    <img id="rotating-image" src="img/logoLinux.png" alt="Logo Linux" class="img-fluid">
                 </div>
+
+                <style>
+                    #rotating-image {
+                        transition: opacity 1s ease-in-out;
+                        /* Transición de desvanecido */
+                        opacity: 1;
+                        /* Imagen visible */
+                    }
+
+                    #rotating-image.fade-out {
+                        opacity: 0;
+                        /* Imagen desaparece */
+                    }
+                </style>
+                <script>
+                    // Lista de imágenes a rotar
+                    const images = [
+                        "img/linux-pc.png",
+                        "img/linuxOS.png",
+                        "img/linuxSleeping.png"
+                    ];
+
+                    // Selección del elemento de la imagen
+                    const rotatingImage = document.getElementById("rotating-image");
+
+                    // Función para obtener imágenes en orden aleatorio
+                    function shuffleArray(array) {
+                        return array.sort(() => Math.random() - 0.5);
+                    }
+
+                    // Mezclar las imágenes adicionales para mostrar en orden aleatorio
+                    let shuffledImages = shuffleArray(images);
+
+                    // Insertar la primera imagen fija al inicio de la lista
+                    shuffledImages.unshift("img/logoLinux.png");
+
+                    // Índice para llevar el control de la imagen actual
+                    let currentIndex = 0;
+
+                    function rotateImage() {
+                        // Aplicar la clase de desvanecido (fade-out)
+                        rotatingImage.classList.add("fade-out");
+
+                        // Esperar a que termine el desvanecido para cambiar la imagen
+                        setTimeout(() => {
+                            currentIndex = (currentIndex + 1) % shuffledImages.length; // Mover al siguiente índice (circular)
+                            rotatingImage.src = shuffledImages[currentIndex]; // Cambiar la imagen
+                        }, 1000); // Tiempo igual al de la transición CSS (1s)
+
+                        // Asegurar que la nueva imagen se desvanezca al aparecer
+                        setTimeout(() => {
+                            rotatingImage.classList.remove("fade-out");
+                        }, 1100); // Añadir un ligero retraso para sincronizar con el cambio
+                    }
+
+                    // Iniciar la rotación después de 3 segundos
+                    setInterval(rotateImage, 4000); // Cambiar imagen cada 4 segundos
+
+                </script>
             </div>
         </div>
     </section>
@@ -308,7 +460,7 @@
 
     <!-- Sección Proyectos -->
     <section class="container py-5" id="proyectos">
-        <h2 class="text-center mb-5">Proyectos Destacados</h2>
+        <h2 class="text-center mb-5 hover:text-danger">Proyectos Destacados</h2>
         <div class="row g-4">
             <!-- Tarjeta 1 -->
             <div class="col-md-4">
@@ -360,11 +512,12 @@
         </div>
     </section>
 
+    <!-- Habilidades -->
     <section class="py-5 bg-dark text-white">
         <div class="container">
             <h2 class="text-center mb-5">Habilidades</h2>
 
-            <div class="row row-cols-2 row-cols-md-4 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-left: 15rem; padding-right: 15rem;">
                 <!-- HTML 5 -->
                 <div class="col">
                     <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
@@ -398,27 +551,30 @@
                     </div>
                 </div>
 
-                <!-- Notion -->
+                <!-- Firebase -->
                 <div class="col">
                     <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
-                        <img src="https://img.icons8.com/ios-filled/50/FFFFFF/notion.png" class="card-img-top mx-auto"
-                            alt="Notion" style="width: 80px;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg"
+                            class="card-img-top mx-auto" alt="Firebase" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
-                            <h5 class="card-title mb-0">Notion</h5>
+                            <h5 class="card-title mb-0">Firebase</h5>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tailwind -->
+
+
+                <!-- MySQL Server -->
                 <div class="col">
                     <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
-                            class="card-img-top mx-auto" alt="Tailwind" style="width: 80px;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                            class="card-img-top mx-auto" alt="MySQL Server" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
-                            <h5 class="card-title mb-0">Tailwind</h5>
+                            <h5 class="card-title mb-0">MySQL Server</h5>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Git -->
                 <div class="col">
@@ -442,16 +598,30 @@
                     </div>
                 </div>
 
-                <!-- Trello -->
+                <!-- Python -->
                 <div class="col">
                     <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"
-                            class="card-img-top mx-auto" alt="Trello" style="width: 80px;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                            class="card-img-top mx-auto" alt="Python" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
-                            <h5 class="card-title mb-0">Trello</h5>
+                            <h5 class="card-title mb-0">Python</h5>
                         </div>
                     </div>
                 </div>
+
+
+                <!-- AWS -->
+                <div class="col">
+                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                        <img src="https://www.svgrepo.com/show/448266/aws.svg" class="card-img-top mx-auto" alt="AWS"
+                            style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">AWS Cloud</h5>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
@@ -797,10 +967,45 @@
     <!-- socialMedia -->
     <div id="socialMedia"></div>
 
-    <!-- Mi script -->
+    <!-- Mi script loader -->
     <script src="script.js"></script>
+
+    <!-- Logica para mostrar componentes -->
     <script defer src="load-components.js"></script>
 
+    <!-- JavaScript Mouse -->
+    <script>
+        // Obtener los elementos del cursor
+        const outerCursor = document.getElementById('outer-cursor');
+        const customCursor = document.getElementById('custom-cursor');
+
+        // Mover el aro más grande y el puntero pequeño con el mouse
+        document.addEventListener('mousemove', (e) => {
+            // Posicionar el aro grande
+            outerCursor.style.left = `${e.clientX - 25}px`;  // Restamos la mitad del tamaño del aro grande
+            outerCursor.style.top = `${e.clientY - 25}px`;  // Restamos la mitad del tamaño del aro grande
+
+            // Posicionar el puntero dentro del aro grande
+            customCursor.style.left = `${e.clientX - 12}px`;  // Restamos la mitad del tamaño del puntero
+            customCursor.style.top = `${e.clientY - 12}px`;  // Restamos la mitad del tamaño del puntero
+        });
+
+        // Cambiar el color del puntero y activar el pulso en el aro cuando está sobre un enlace o botón
+        document.querySelectorAll('a, button').forEach(elem => {
+            customCursor.classList.add('pulse-active'); // El circulo pequeño comieza palpitando
+            elem.addEventListener('mouseenter', () => {
+                customCursor.style.setProperty('--cursor-color', 'red');
+                customCursor.classList.add('pulse-active');
+                outerCursor.style.setProperty('--cursor-color', 'red');
+                outerCursor.classList.add('pulse-active');  // Activa la animación de pulso
+            });
+            elem.addEventListener('mouseleave', () => {
+                customCursor.style.setProperty('--cursor-color', 'orange');
+                outerCursor.style.setProperty('--cursor-color', 'orange');
+                outerCursor.classList.remove('pulse-active');  // Desactiva la animación de pulso
+            });
+        });
+    </script>
 </body>
 
 </html>
