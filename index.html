@@ -294,7 +294,7 @@
         <div class="container">
             <div class="row">
                 <!-- Columna para el texto -->
-                <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+                <div class="text-overlay col-12 col-md-6 d-flex flex-column justify-content-center">
                     <h1 class="display-3 fw-bold mb-3">
                         Hi,<br>
                         I'm <span class="gradient-text">Francis</span>,<br>
@@ -311,7 +311,7 @@
                     </div>
                 </div>
                 <!-- Columna para la imagen -->
-                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <div class="image-container col-12 col-md-6 d-flex justify-content-center align-items-center">
                     <img id="rotating-image" src="img/logoLinux.png" alt="Logo Linux" class="img-fluid">
                 </div>
 
@@ -325,7 +325,21 @@
 
                     #rotating-image.fade-out {
                         opacity: 0;
-                        /* Imagen desaparece */
+                    }
+
+                    .text-overlay {
+                        z-index: 2;
+                        color: white;
+                    }
+
+                    .image-container {
+                        z-index: 1;
+                    }
+
+                    .gradient-text {
+                        background: linear-gradient(45deg, #fa9a25, #feeec7);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
                     }
                 </style>
                 <script>
