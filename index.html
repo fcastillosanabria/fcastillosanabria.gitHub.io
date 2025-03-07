@@ -120,7 +120,7 @@
                 position: fixed;
                 top: 58%;
                 left: 71.5%;
-                right: 0;
+                right: 1%;
                 z-index: 999;
 
             }
@@ -688,7 +688,7 @@
         </div>
 
         <!-- Botón flotante para mostrar el chatbot -->
-        <button id="mostrar-chatbot" class="btn btn-primary rounded-circle chatbot-button">
+        <button id="mostrar-chatbot" class="rounded-circle chatbot-button">
             <i class="fas fa-robot"></i>
         </button>
 
@@ -703,11 +703,23 @@
     width: 60px;
     height: 60px;
     font-size: 28px;
-    display: none; /* Oculto al inicio */
+    display: none; /* Asegura que el contenido esté alineado */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    border-radius: 50%;
     z-index: 100;
     transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 4px 10px rgba(255, 166, 0, 0.586);
+    background-color: orange; /* Color de fondo */
+    color: white; /* Color del icono */
+    border: none; /* Elimina bordes */
 }
+
+.chatbot-button i {
+    font-size: 28px; /* Tamaño del icono */
+    line-height: 1;
+}
+
 
 /* 🎭 Animación de aparición (fade-in) para el botón y la terminal */
 @keyframes fadeIn {
@@ -759,14 +771,18 @@
 
     <script src='https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/aaronbarker/css-variables-polyfill@master/css-var-polyfill.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>y
     <script id="rendered-js">
+        $(function () {
         var shell = $('.shell').resizable({
             minHeight: 108,
             minWidth: 250
-        }).
-            draggable({
-                handle: '> .status-bar .title'
-            });
+        }).draggable({
+            handle: '.status-bar'
+        });
+    });
+        
 
         // Fake in memory filesystem
         var fs = {
