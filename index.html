@@ -20,6 +20,11 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
+
+
+    <!-- FontAwesome CDN (estilos para iconos de la terminal) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <script
         src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
     <link rel="canonical" href="https://codepen.io/jcubic/pen/WZvYGj">
@@ -29,7 +34,6 @@
 
     <!-- estilos originales -->
     <!-- <link rel="stylesheet" href="https://unpkg.com/shell.js@1.0.5/dist/css/shell.min.css"> -->
-
 
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css'>
     <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css'>
@@ -654,39 +658,93 @@
 
 
     <!--ChatBot-->
-    <div class="options-shell-container" style="z-index: 50;">
-        <form>
-            <label for="type">Window Type:</label>
-            <select id="type">
-                <option value="osx">osx</option>
-                <option value="ubuntu" selected>ubuntu</option>
-                <option value="windows">windows</option>
-                <option value="custom">custom</option>
-            </select>
-            <label for="dark">dark</label>
-            <input type="checkbox" id="dark" checked />
-        </form>
-    </div>
-    <!-- shell.js terminal window -->
-    <div class="shell-container" style="z-index: 50;">
-        <div class="shell ubuntu dark shadow">
-            <div class="status-bar">
-                <div class="buttons">
-                    <a href="javascript:;" class="close" title="Close">
-                        <i class="fa fa-times"></i>
-                    </a>
-                    <a href="javascript:;" class="minimize" title="Minimize">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a href="javascript:;" class="enlarge" title="Enlarge">
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </div>
-                <div class="title">chatbot@host: ~</div>
-            </div>
-            <div class="content"></div>
+    <div>
+        <div class="options-shell-container bg-white" style="z-index: 50;">
+            <form>
+                <label for="type">Window Type:</label>
+                <select id="type">
+                    <option value="osx">osx</option>
+                    <option value="ubuntu" selected>ubuntu</option>
+                    <option value="windows">windows</option>
+                    <option value="custom">custom</option>
+                </select>
+                <label for="dark">dark</label>
+                <input type="checkbox" id="dark" checked />
+            </form>
         </div>
+        <!-- shell.js terminal window -->
+        <div class="shell-container" style="z-index: 50;">
+            <div class="shell ubuntu dark shadow">
+                <div class="status-bar">
+                    <div class="buttons">
+                        <a href="javascript:;" class="close" title="Close">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                    <div class="title">chatbot@host: ~</div>
+                </div>
+                <div class="content"></div>
+            </div>
+        </div>
+
+        <!-- Botón flotante para mostrar el chatbot -->
+        <button id="mostrar-chatbot" class="btn btn-primary rounded-circle chatbot-button">
+            <i class="fas fa-robot"></i>
+        </button>
+
+
+
     </div>
+    <style>
+        .chatbot-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    display: none; /* Oculto al inicio */
+    z-index: 100;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+}
+
+/* 🎭 Animación de aparición (fade-in) para el botón y la terminal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 🔄 Animación de salto (rebote cada 3s) */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ✨ Cuando el botón aparece después de cerrar el chatbot */
+.chatbot-button.show {
+    display: flex !important;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* 🚀 El salto cada 3s cuando está en modo círculo */
+.chatbot-button.bounce {
+    animation: jump 0.6s ease-in-out infinite alternate;
+}
+
+    </style>
+
+
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js'></script>
     <script src='https://unpkg.com/jquery.terminal/js/jquery.mousewheel-min.js'></script>
@@ -983,6 +1041,34 @@
             term.exec("chatbot");
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+    function ocultarChatbot() {
+        $('.shell-container, .options-shell-container').fadeOut(() => {
+            let boton = $('#mostrar-chatbot');
+            boton.addClass('show bounce'); // Muestra el botón con animación de salto
+        });
+    }
+
+    function mostrarChatbot() {
+        $('.shell-container, .options-shell-container').fadeIn();
+        $('#mostrar-chatbot').removeClass('show bounce'); // Elimina la animación de salto al abrir el chat
+    }
+
+    // 🔴 Botón de cerrar
+    $('.close').click(function () {
+        ocultarChatbot();
+    });
+
+    // 🟢 Botón flotante para mostrar chatbot
+    $('#mostrar-chatbot').click(function () {
+        mostrarChatbot();
+    });
+});
+
+    </script>
+
 
 
     <!--Codigo de audio de fondo-->
