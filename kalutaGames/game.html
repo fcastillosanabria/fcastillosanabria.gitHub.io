@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaluta Games</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #fff;
+            overflow: hidden; /* Evita el scroll mientras carga */
+        }
+        .loader-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: orange;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .progress-bar {
+            width: 50%;
+            height: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: brown;
+            transition: width 0.2s ease-in-out;
+        }
+        .hidden {
+            display: none;
+        }
+        .navbar {
+            background-color: #ff9000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ocupar todo el ancho */
+            display: flex;
+            z-index: 1000; /* Asegurar que quede sobre otros elementos */
+        }
+
+        .sidebar {
+            background-color: #ff9000;
+            width: 80px;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            
+        }
+        .sidebar i {
+            font-size: 30px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .game-thumbnail {
+            background-color: #d3d3d3;
+            width: 100%;
+            height: 150px;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            background-color: rgba(255, 144, 0, 0.8);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader-container">
+        <h1 style="font-size: 7.5em;" class="text-white fw-bold">Kaluta Games</h1>
+        <br>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-bar"></div>
+        </div>
+        <p id="progress-text" class="text-white mt-2">0%</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="content" style="display: none;">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <span class="navbar-brand text-white fw-bold">Kaluta Games</span>
+                <input class="form-control ms-auto w-25" type="search" placeholder="Buscar juegos" aria-label="Buscar juegos">
+            </div>
+        </nav>
+
+        <div class="sidebar">
+            <i class="fas fa-home"></i>
+            <span class="text-white">Inicio</span>
+        </div>
+
+        <div class="container mt-4" style="margin-left: 100px;">
+            <div class="row">
+                <div class="col-12 bg-light game-thumbnail"></div>
+            </div>
+            <h5 class="mt-4 fw-bold">Los más jugados</h5>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4" style="margin-left: 100px;">
+            <div class="row">
+                <div class="col-12 bg-light game-thumbnail"></div>
+            </div>
+            <h5 class="mt-4 fw-bold">Los más jugados</h5>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4" style="margin-left: 100px;">
+            <div class="row">
+                <div class="col-12 bg-light game-thumbnail"></div>
+            </div>
+            <h5 class="mt-4 fw-bold">Los más jugados</h5>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4" style="margin-left: 100px;">
+            <div class="row">
+                <div class="col-12 bg-light game-thumbnail"></div>
+            </div>
+            <h5 class="mt-4 fw-bold">Los más jugados</h5>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Descifrar la palabra</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="game-thumbnail"></div>
+                    <p class="text-center">Puzzle</p>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let progress = 0;
+            const progressBar = document.getElementById("progress-bar");
+            const progressText = document.getElementById("progress-text");
+
+            const totalDuration = 1000; // 4 segundos hasta el 90%
+            const updateInterval = 50; // Cada 50ms actualiza el progreso
+            const step = 90 / (totalDuration / updateInterval); // Cuánto aumenta en cada paso
+            let pageLoaded = false;
+            let loadingFinished = false;
+
+            let interval = setInterval(() => {
+                if (progress < 90) {
+                    progress += step;
+                    progressBar.style.width = progress + "%";
+                    progressText.textContent = Math.round(progress) + "%";
+                } else {
+                    clearInterval(interval); // Detenemos cuando llegue al 90%
+                    loadingFinished = true;
+
+                    // Si la página ya cargó, terminamos la animación
+                    if (pageLoaded) finishLoading();
+                }
+            }, updateInterval);
+
+            // Cuando la página haya cargado completamente
+            window.addEventListener("load", function () {
+                pageLoaded = true;
+
+                if (loadingFinished) {
+                    // Si ya terminó la animación al 90%, sube al 100% y se esconde
+                    finishLoading();
+                }
+            });
+
+            function finishLoading() {
+                progress = 100;
+                progressBar.style.width = "100%";
+                progressText.textContent = "100%";
+
+                setTimeout(() => {
+                    document.getElementById("loader").classList.add("hidden");
+                    document.getElementById("content").style.display = "block";
+                    document.body.style.overflow = "auto"; // Habilita el scroll
+                    console.log("Carga completa, mostrando contenido.");
+                }, 500);
+            }
+        });
+    </script>
+    
+
+</body>
+</html>
