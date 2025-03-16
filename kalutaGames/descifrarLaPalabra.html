@@ -22,7 +22,7 @@
 
         /* Mantener el fondo animado */
         .area {
-            background: #f87984;
+            background: orange;
             background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
             width: 100%;
             height: 100vh;
@@ -48,7 +48,7 @@
             list-style: none;
             width: 20px;
             height: 20px;
-            background: rgba(207, 14, 14, 0.2);
+            background: rgba(207, 14, 14, 0.386);
             animation: animate 25s linear infinite;
             bottom: -150px;
 
@@ -157,7 +157,7 @@
             padding: 0;
         }
 
-        
+
 
         .loader-container {
             position: fixed;
@@ -335,14 +335,22 @@
 <body>
 
     <!-- Loader -->
-    <!-- <div id="loader" class="loader-container">
-        <h1 style="font-size: 5em;" class="text-white fw-bold">Descifrar la palabra</h1>
-        <br>
+<div id="loader" class="loader-container">
+    <h1 style="font-size: 5em;" class="text-white fw-bold">Descifrar la palabra</h1>
+    <br>
+    <div id="progress-container">
         <div class="progress-bar">
             <div class="progress-fill" id="progress-bar"></div>
         </div>
         <p id="progress-text" class="text-white mt-2">0%</p>
-    </div> -->
+    </div>
+    <button id="start-button" onclick="toggleMusic()" class="btn btn-primary d-none" style="font-size: 2em; padding: 15px 30px;">Comenzar</button>
+</div>
+
+<audio id="background-music" loop>
+    <source src="musica.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+</audio>
 
 
     <div class="container">
@@ -383,19 +391,26 @@
                 <i id="sound-off" class="bi bi-volume-mute-fill d-none" onclick="toggleSound()"
                     style="font-size: 2em;"></i>
             </div>
-            <script>
-                function toggleMusic() {
-                    document.getElementById("music-on").classList.toggle("d-none");
-                    document.getElementById("music-off").classList.toggle("d-none");
-                    // Aquí puedes agregar la lógica para activar/desactivar la música
-                    console.log("Música activada/desactivada");
-                }
 
-                function toggleSound() {
-                    document.getElementById("sound-on").classList.toggle("d-none");
-                    document.getElementById("sound-off").classList.toggle("d-none");
-                    // Aquí puedes agregar la lógica para activar/desactivar el sonido FX
-                    console.log("Sonido activado/desactivado");
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let music = document.getElementById("background-music");
+                    music.play().catch(error => console.log("Autoplay bloqueado:", error));
+                });
+
+                function toggleMusic() {
+                    let music = document.getElementById("background-music");
+                    let musicOn = document.getElementById("music-off");
+                    let musicOff = document.getElementById("music-on");
+
+                    if (music.paused) {
+                        music.play();
+                    } else {
+                        music.pause();
+                    }
+
+                    musicOn.classList.toggle("d-none");
+                    musicOff.classList.toggle("d-none");
                 }
             </script>
 
@@ -593,50 +608,58 @@
             let progress = 0;
             const progressBar = document.getElementById("progress-bar");
             const progressText = document.getElementById("progress-text");
-
+            const progressContainer = document.getElementById("progress-container");
+            const startButton = document.getElementById("start-button");
             const totalDuration = 1000; // 4 segundos hasta el 90%
             const updateInterval = 50; // Cada 50ms actualiza el progreso
-            const step = 90 / (totalDuration / updateInterval); // Cuánto aumenta en cada paso
+            const step = 90 / (totalDuration / updateInterval);
             let pageLoaded = false;
             let loadingFinished = false;
-
+    
             let interval = setInterval(() => {
                 if (progress < 90) {
                     progress += step;
                     progressBar.style.width = progress + "%";
                     progressText.textContent = Math.round(progress) + "%";
                 } else {
-                    clearInterval(interval); // Detenemos cuando llegue al 90%
+                    clearInterval(interval);
                     loadingFinished = true;
-
-                    // Si la página ya cargó, terminamos la animación
+    
                     if (pageLoaded) finishLoading();
                 }
             }, updateInterval);
-
-            // Cuando la página haya cargado completamente
+    
             window.addEventListener("load", function () {
                 pageLoaded = true;
-
+    
                 if (loadingFinished) {
-                    // Si ya terminó la animación al 90%, sube al 100% y se esconde
                     finishLoading();
                 }
             });
-
+    
             function finishLoading() {
                 progress = 100;
                 progressBar.style.width = "100%";
                 progressText.textContent = "100%";
-
+    
                 setTimeout(() => {
-                    document.getElementById("loader").classList.add("hidden");
-                    document.getElementById("content").style.display = "block";
-                    document.body.style.overflow = "auto"; // Habilita el scroll
-                    console.log("Carga completa, mostrando contenido.");
+                    progressContainer.classList.add("d-none"); // Oculta la barra de progreso
+                    startButton.classList.remove("d-none"); // Muestra el botón
                 }, 500);
             }
         });
+    
+        document.getElementById("start-button").addEventListener("click", function () {
+            document.getElementById("loader").classList.add("hidden");
+            document.getElementById("content").style.display = "block";
+            document.body.style.overflow = "auto";
+            playMusic();
+        });
+    
+        function playMusic() {
+            let music = document.getElementById("background-music");
+            music.play().catch(error => console.log("Autoplay bloqueado:", error));
+        }
     </script> -->
 
 
