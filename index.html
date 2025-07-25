@@ -10,7 +10,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <link rel="icon" type="image/png" sizes="192x192" href="img/logoLinux.png">
-    <title>Error</title>
+    <title>Portafolio Digital</title>
 
     <!-- CDN Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -38,173 +38,47 @@
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css'>
     <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css'>
     <style>
-        /* Efecto hover para el card */
-        .card {
-            transition: all 0.3s ease;
+        /* Efecto hover para el card project */
+        #projectCard {
+            background-color: #5E2750;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.096);
+            /* Sombra más intensa */
+            transition: all 0.6s ease;
             /* Transición suave para todos los cambios */
         }
 
         /* Cambio de color de fondo y sombra al hacer hover */
-        .card:hover {
-            background-color: rgb(255, 245, 228) !important;
+        #projectCard:hover {
+            background-color: #2C001E;
             /* Forzar el cambio de fondo (rosado claro) */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             /* Sombra más intensa */
             transform: translateY(-5px);
             /* Eleva un poco el card */
+            transition: all 0.6s ease;
+            /* Transición suave para todos los cambios */
         }
 
-        form {
-            margin: 10px;
-            height: calc(100% - 29px);
-            --size: 1.1;
-            cursor: move;
+        #skillsCard {
+            background-color: #dfdfdf;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.096);
+            /* Sombra más intensa */
+            transition: all 0.3s ease;
+            /* Transición suave para todos los cambios */
+
         }
 
-        body .shell {
-            width: 420px;
-            height: 250px;
-            transition: all .0s linear;
-        }
-
-        .shell .terminal {
-            height: calc(100% - 29px);
-            --size: 1.1;
-            /*
-         * padding bottom 0 on terminal and margin
-         * on .cmd will be in version 2.0.1
-         * that fixes FireFox issue
-         */
-            padding-bottom: 0;
-        }
-
-        .shell .terminal .cmd {
-            margin-bottom: 10px;
-        }
-
-        .shell .typed-cursor,
-        .shell .cursor {
-            background: transparent;
-        }
-
-        .shell>.status-bar .title {
-            cursor: move;
-        }
-
-        /*
-     * fix to shell.js to center title to free space
-     */
-        .shell.windows .status-bar .title {
-            right: 106px;
-        }
-
-        @supports (--css: variables) {
-            .shell .terminal {
-                --color: #aaa;
-            }
-
-            .shell.ubuntu .terminal {
-                --background: #300924;
-            }
-
-            .shell.osx .content.terminal {
-                --background: #222;
-            }
-
-            .shell.light .content.terminal {
-                --background: white;
-                --color: black;
-            }
-
-            .options-shell-container {
-                position: fixed;
-                top: 58%;
-                left: 71.5%;
-                right: 1%;
-                z-index: 999;
-
-            }
-
-            /* Estilos para el contenedor de la terminal */
-            .shell-container {
-                position: fixed;
-                top: 63%;
-                left: 71.5%;
-                right: 0;
-                z-index: 999;
-
-            }
-
-            /*
-        * windows and custom are the last ones so
-        * they don't get overwritten by light
-        */
-            .shell.windows .content.terminal {
-                --background: black;
-                --color: white;
-                --animation: terminal-underline;
-            }
-
-            .shell.custom .content.terminal {
-                --background: #292929;
-                --color: #aaa;
-            }
-        }
-
-        /*
-     * overwrite shell.js style because shell.js   
-     * selectors are stronger then terminal ones
-     */
-        .cmd span.cursor {
-            animation: none;
-            width: auto;
-            background-color: var(--background, #000);
-        }
-
-        .shell:not(.light) terminal.content,
-        .shell.osx.dark .content,
-        .shell.ubuntu:not(.light) .content {
-            background-color: var(--background, #222) !important;
-        }
-
-        .shell .terminal.content {
-            font-size: 12px;
-        }
-
-        .cmd {
-            background-color: inherit;
-        }
-
-        @supports (--css: variables) {
-            .shell .terminal.content {
-                font-size: calc(var(--size, 1) * 12px);
-            }
-        }
-
-        /* fix for Firefox */
-        .terminal>.resizer,
-        .terminal>.font .resizer {
-            visibility: visible;
-            pointer-events: none;
-        }
-
-        .terminal::-webkit-scrollbar-track {
-            border: 1px solid var(--color, #aaa);
-            background-color: var(--background);
-        }
-
-        .terminal::-webkit-scrollbar {
-            width: 10px;
-            background-color: var(--background);
-        }
-
-        .terminal::-webkit-scrollbar-thumb {
-            background-color: var(--color, #aaa);
+        /* Cambio de color de fondo y sombra al hacer hover */
+        #skillsCard:hover {
+            background-color: #5E2750;
+            /* Forzar el cambio de fondo (rosado claro) */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Sombra más intensa */
+            transform: translateY(-5px);
+            /* Eleva un poco el card */
         }
     </style>
-    <script>
-        window.console = window.console || function (t) { };
-    </script>
 
     <style>
         /* Ocultar el puntero del mouse en toda la página */
@@ -485,20 +359,25 @@
 
     <!-- Sección Proyectos -->
     <section class="container py-5" id="proyectos">
-        <h2 class="text-center mb-5 hover:text-danger">Proyectos Destacados</h2>
+        <h2 class="text-center mb-5">Proyectos Destacados</h2>
         <div class="row g-4">
             <!-- Tarjeta 1 -->
             <div class="col-md-4">
-                <div class="card bg-dark border-0 text-light h-100">
-                    <img src="https://andinoperu.b-cdn.net/wp-content/uploads/2024/03/razones-para-visitar-machu-picchu.webp"
+                <div class="card border-0 text-light h-100" id="projectCard">
+                    <img src="https://lh3.googleusercontent.com/PNMY94R9txsQDGLuv-BnRdWYqcnN_pt9_4unnZyT6xSSsQio_nfWjNBvuTcM5z7R5YxwOg2bcE5D8rzWc4wCACCMSOo=s1280-w1280-h800"
                         class="card-img-top rounded" alt="Proyecto 1">
                     <div class="card-body">
-                        <h5 class="card-title">Shumay Translate</h5>
-                        <p class="card-text">El primer traductor indigena con IA para traducir el español a Jaqaru y
-                            viceversa.</p>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-outline-light">Demo</a>
-                            <a href="#" class="btn btn-outline-light">Repo</a>
+                        <h5 class="card-title">QuickCalendar – Powered by Google Calendar</h5>
+                        <p class="card-text">Extension para navegadores, poteenciada con Google Calendar.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="https://chromewebstore.google.com/detail/quickcalendar-%E2%80%93-powered-b/gpkpgapohfiajeidfakjcmeljmgjcopp?hl=es-419&utm_source=ext_sidebar"
+                                target="_blank" class="btn btn-outline-light">Probar</a>
+                            <div class="text-end">
+                                <!-- Íconos de tecnologías -->
+                                <i class="bi bi-filetype-js fs-5 me-2" title="JavaScript"></i>
+                                <i class="bi bi-google fs-5 me-2" title="Google API"></i>
+                                <i class="bi bi-chrome fs-5" title="Chrome Extension"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -506,8 +385,8 @@
 
             <!-- Tarjeta 2 -->
             <div class="col-md-4">
-                <div class="card bg-dark border-0 text-light h-100">
-                    <img src="https://andinoperu.b-cdn.net/wp-content/uploads/2024/03/razones-para-visitar-machu-picchu.webp"
+                <div class="card border-0 text-light h-100" id="projectCard">
+                    <img src="https://lh3.googleusercontent.com/PNMY94R9txsQDGLuv-BnRdWYqcnN_pt9_4unnZyT6xSSsQio_nfWjNBvuTcM5z7R5YxwOg2bcE5D8rzWc4wCACCMSOo=s1280-w1280-h800"
                         class="card-img-top rounded" alt="Proyecto 2">
                     <div class="card-body">
                         <h5 class="card-title">Urpi Dictionary</h5>
@@ -524,8 +403,8 @@
 
             <!-- Tarjeta 3 -->
             <div class="col-md-4">
-                <div class="card bg-dark border-0 text-light h-100">
-                    <img src="https://andinoperu.b-cdn.net/wp-content/uploads/2024/03/razones-para-visitar-machu-picchu.webp"
+                <div class="card border-0 text-light h-100" id="projectCard">
+                    <img src="https://lh3.googleusercontent.com/PNMY94R9txsQDGLuv-BnRdWYqcnN_pt9_4unnZyT6xSSsQio_nfWjNBvuTcM5z7R5YxwOg2bcE5D8rzWc4wCACCMSOo=s1280-w1280-h800"
                         class="card-img-top rounded" alt="Proyecto 3">
                     <div class="card-body">
                         <h5 class="card-title">RenoAs</h5>
@@ -543,14 +422,15 @@
     </section>
 
     <!-- Habilidades -->
-    <section class="py-5 bg-dark text-white">
+    <section class="py-5 bg-dark text-white" id="habilidades">
         <div class="container">
             <h2 class="text-center mb-5">Habilidades</h2>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-left: 15rem; padding-right: 15rem;">
+            <div class="row row-cols-1 row-cols-md-3 g-4 d-none d-lg-flex"
+                style="padding-left: 15rem; padding-right: 15rem;">
                 <!-- HTML 5 -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
                             class="card-img-top mx-auto" alt="HTML 5" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -561,7 +441,7 @@
 
                 <!-- CSS 3 -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
                             class="card-img-top mx-auto" alt="CSS 3" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -572,7 +452,7 @@
 
                 <!-- JavaScript -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
                             class="card-img-top mx-auto" alt="JavaScript" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -583,7 +463,7 @@
 
                 <!-- Firebase -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg"
                             class="card-img-top mx-auto" alt="Firebase" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -592,11 +472,9 @@
                     </div>
                 </div>
 
-
-
                 <!-- MySQL Server -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
                             class="card-img-top mx-auto" alt="MySQL Server" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -605,10 +483,9 @@
                     </div>
                 </div>
 
-
                 <!-- Git -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
                             class="card-img-top mx-auto" alt="Git" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -619,7 +496,7 @@
 
                 <!-- Github -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                             class="card-img-top mx-auto" alt="Github" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -630,7 +507,7 @@
 
                 <!-- Python -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
                             class="card-img-top mx-auto" alt="Python" style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -639,10 +516,115 @@
                     </div>
                 </div>
 
-
                 <!-- AWS -->
                 <div class="col">
-                    <div class="card h-100 bg-dark-subtle rounded-4 text-center p-4">
+                    <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                        <img src="https://www.svgrepo.com/show/448266/aws.svg" class="card-img-top mx-auto" alt="AWS"
+                            style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">AWS Cloud</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrusel para pantallas pequeñas -->
+        <div id="skillsCarousel" class="carousel slide d-block d-lg-none" data-bs-ride="carousel"
+            data-bs-interval="2000">
+            <div class="carousel-inner">
+
+                <!-- HTML 5 -->
+                <div class="carousel-item active">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                            class="card-img-top mx-auto" alt="HTML 5" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">HTML 5</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSS 3 -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                            class="card-img-top mx-auto" alt="CSS 3" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">CSS 3</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                            class="card-img-top mx-auto" alt="JavaScript" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">JavaScript</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Firebase -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg"
+                            class="card-img-top mx-auto" alt="Firebase" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">Firebase</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MySQL Server -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                            class="card-img-top mx-auto" alt="MySQL Server" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">MySQL Server</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Git -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                            class="card-img-top mx-auto" alt="Git" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">Git</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Github -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                            class="card-img-top mx-auto" alt="Github" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">Github</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                            class="card-img-top mx-auto" alt="Python" style="width: 80px;">
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title mb-0">Python</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS -->
+                <div class="carousel-item">
+                    <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
                         <img src="https://www.svgrepo.com/show/448266/aws.svg" class="card-img-top mx-auto" alt="AWS"
                             style="width: 80px;">
                         <div class="card-body p-0 pt-3">
@@ -651,439 +633,49 @@
                     </div>
                 </div>
 
-
             </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#skillsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#skillsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+            </button>
         </div>
+
     </section>
 
 
-    <!--ChatBot-->
-    <div>
-        <div class="options-shell-container bg-white" style="z-index: 50;">
-            <form>
-                <label for="type">Window Type:</label>
-                <select id="type">
-                    <option value="osx">osx</option>
-                    <option value="ubuntu" selected>ubuntu</option>
-                    <option value="windows">windows</option>
-                    <option value="custom">custom</option>
-                </select>
-                <label for="dark">dark</label>
-                <input type="checkbox" id="dark" checked />
-            </form>
-        </div>
-        <!-- shell.js terminal window -->
-        <div class="shell-container" style="z-index: 50;">
-            <div class="shell ubuntu dark shadow">
-                <div class="status-bar">
-                    <div class="buttons">
-                        <a href="javascript:;" class="close" title="Close">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                    <div class="title">chatbot@host: ~</div>
-                </div>
-                <div class="content"></div>
-            </div>
-        </div>
-
-        <!-- Botón flotante para mostrar el chatbot -->
-        <button id="mostrar-chatbot" class="rounded-circle chatbot-button">
-            <i class="fas fa-robot"></i>
-        </button>
 
 
-
-    </div>
     <style>
         .chatbot-button {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 60px;
-    height: 60px;
-    font-size: 28px;
-    display: none; /* Asegura que el contenido esté alineado */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    border-radius: 50%;
-    z-index: 100;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(255, 166, 0, 0.586);
-    background-color: orange; /* Color de fondo */
-    color: white; /* Color del icono */
-    border: none; /* Elimina bordes */
-}
-
-.chatbot-button i {
-    font-size: 28px; /* Tamaño del icono */
-    line-height: 1;
-}
-
-
-/* 🎭 Animación de aparición (fade-in) para el botón y la terminal */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* 🔄 Animación de salto (rebote cada 3s) */
-@keyframes jump {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-/* ✨ Cuando el botón aparece después de cerrar el chatbot */
-.chatbot-button.show {
-    display: flex !important;
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-/* 🚀 El salto cada 3s cuando está en modo círculo */
-.chatbot-button.bounce {
-    animation: jump 0.6s ease-in-out infinite alternate;
-}
-
+            display: flex;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+            /* Asegura que el contenido esté alineado */
+            justify-content: center;
+            /* Centra horizontalmente */
+            align-items: center;
+            /* Centra verticalmente */
+            border-radius: 50%;
+            z-index: 100;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(255, 166, 0, 0.586);
+            background-color: orange;
+            /* Color de fondo */
+            color: white;
+            /* Color del icono */
+            /* Elimina bordes */
+        }
     </style>
 
 
-    <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js'></script>
-    <script src='https://unpkg.com/jquery.terminal/js/jquery.mousewheel-min.js'></script>
-    <script src='https://unpkg.com/js-polyfills/keyboard.js'></script>
-    <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
-    <script src='https://codepen.io/jcubic/pen/WZjbgq.js'></script>
-
-    <!-- logica editable -->
-    <script src="terminal.js"></script>
-    <!-- logica original -->
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-
-    <script src='https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js'></script>
-    <script src='https://cdn.jsdelivr.net/gh/aaronbarker/css-variables-polyfill@master/css-var-polyfill.js'></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>y
-    <script id="rendered-js">
-        $(function () {
-        var shell = $('.shell').resizable({
-            minHeight: 108,
-            minWidth: 250
-        }).draggable({
-            handle: '.status-bar'
-        });
-    });
-        
-
-        // Fake in memory filesystem
-        var fs = {
-            'prueba.txt': 'Welcome to the prueba',
-            'projects': {
-                'hello.txt': 'Este archivo se llama hello.txt',
-                'index.html': 'Página web de prueba',
-                'foo.txt': 'Hello, World!',
-                'bar.txt': 'Welcome to the bar',
-                'terminal': {
-                    'foo': {
-                        'bar.txt': 'hello bar',
-                        'baz.txt': 'baz content'
-                    }
-                }
-            },
-            'desktop': {
-                'file1.txt': 'Content of file1',
-                'file2.txt': 'Content of file2',
-                'subfolder': {
-                    'subfile1.txt': 'Content of subfile1',
-                    'subfile2.txt': 'Content of subfile2'
-                }
-            }
-        };
-
-        var path = [];
-        var cwd = fs;
-        function restore_cwd(fs, path) {
-            path = path.slice();
-            while (path.length) {
-                if (window.CP.shouldStopExecution(0)) break;
-                var dir_name = path.shift();
-                if (!is_dir(fs[dir_name])) {
-                    throw new Error('Internal Error Invalid directory ' +
-                        $.terminal.escape_brackets(dir_name));
-                }
-                fs = fs[dir_name];
-            } window.CP.exitedLoop(0);
-            return fs;
-        }
-        function is_dir(obj) {
-            return typeof obj === 'object';
-        }
-        function is_file(obj) {
-            return typeof obj === 'string';
-        }
-        var commands = {
-            cd: function (dir) {
-                this.pause();
-                if (dir === '/') {
-                    path = [];
-                    cwd = restore_cwd(fs, path);
-                } else if (dir === '..') {
-                    if (path.length) {
-                        path.pop(); // remove from end
-                        cwd = restore_cwd(fs, path);
-                    }
-                } else if (dir.match(/\//)) {
-                    var p = dir.replace(/\/$/, '').split('/').filter(Boolean);
-                    if (dir[0] !== '/') {
-                        p = path.concat(p);
-                    }
-                    cwd = restore_cwd(fs, p);
-                    path = p;
-                } else if (!is_dir(cwd[dir])) {
-                    this.error($.terminal.escape_brackets(dir) + ' is not a directory');
-                } else {
-                    cwd = cwd[dir];
-                    path.push(dir);
-                }
-                this.resume();
-            },
-            ls: function () {
-                if (!is_dir(cwd)) {
-                    throw new Error('Internal Error Invalid directory');
-                }
-                var dir = Object.keys(cwd).map(function (key) {
-                    if (is_dir(cwd[key])) {
-                        return key + '/';
-                    }
-                    return key;
-                });
-                this.echo(dir.join('\n'));
-            },
-            cat: function (file) {
-                if (!is_file(cwd[file])) {
-                    this.error($.terminal.escape_brackets(file) + " don't exists");
-                } else {
-                    this.echo(cwd[file]);
-                }
-            },
-            help: function () {
-                this.echo('Available commands: ' + Object.keys(commands).join(', '));
-            },
-            mkdir: function (dir) {
-                if (!dir) {
-                    this.error('Uso: mkdir <nombre_carpeta>');
-                    return;
-                }
-                if (cwd[dir]) {
-                    this.error('La carpeta ' + dir + ' ya existe.');
-                    return;
-                }
-                cwd[dir] = {};
-                this.echo('Carpeta ' + dir + ' creada.');
-            },
-
-            touch: function (file, content) {
-                if (!file) {
-                    this.error('Uso: touch <nombre_archivo>');
-                    return;
-                }
-                if (cwd[file]) {
-                    this.error('El archivo ' + file + ' ya existe.');
-                    return;
-                }
-                cwd[file] = content || '';
-                this.echo('Archivo ' + file + ' creado.');
-            },
-
-            rm: function (fileOrDir) {
-                if (!fileOrDir) {
-                    this.error('Uso: rm <nombre_archivo_o_carpeta>');
-                    return;
-                }
-                if (!cwd[fileOrDir]) {
-                    this.error('El archivo o carpeta ' + fileOrDir + ' no existe.');
-                    return;
-                }
-
-                // Comprobar si es un directorio
-                if (is_dir(cwd[fileOrDir])) {
-                    this.error('Para eliminar un directorio y su contenido, utiliza "rm -r ' + fileOrDir + '"');
-                    return;
-                }
-
-                delete cwd[fileOrDir];
-                this.echo('Archivo o carpeta ' + fileOrDir + ' eliminado.');
-            },
-            chatbot: function () {
-                this.error("Hi! I'm a chatbot. How can I help you?");
-                this.echo("Enter the corresponding number");
-                this.echo("1 === Brindame informacion basica sobre ti");
-                this.echo("2 === ¿Que tecnologias utilizas?");
-                this.error("You can invoke me again with the word \"chatbot\"");
-                this.echo("=============================================");
-                this.error("You can use my terminal with some basic commands ;)");
-            },
-            hola: function () {
-                this.echo("Hola, soy un chatbot,");
-                this.echo("elige una de las opciones:");
-                this.echo("1 === Brindame informacion basica sobre ti");
-                this.echo("2 === ¿Que tecnologias utilizas?");
-                this.error("You can invoke me again with the word \"chatbot\"");
-            },
-            1: function () {
-                this.echo("====================================");
-                this.echo("¡Hola! Soy Francis Castillo Sanabria");
-                this.echo("====================================");
-                this.echo("Soy un apasionado de la tecnologia con un fuerte compromiso con la excelencia y la innovación.");
-                this.echo("Mi viaje en el mundo de programador comenzó con una curiosidad insaciable y un deseo constante de aprender y crecer.");
-                this.echo("Desde mis primeros pasos en esta industria, me he dedicado a crear proyectos para mejorar mis habilidades");
-                this.echo("====================================");
-            },
-
-            2: function () {
-                this.echo("Respuesta a la segunda pregunta: Tecnologías que utilizo.");
-            }
-        };
-
-        function completion(string, callback) {
-            var command = this.get_command();
-            var cmd = $.terminal.parse_command(command);
-
-            function dirs(cwd) {
-                return Object.keys(cwd).filter(function (key) {
-                    return is_dir(cwd[key]);
-                }).map(function (dir) {
-                    return dir + '/';
-                });
-            }
-
-            if (cmd.name === 'ls') {
-                callback([]);
-            } else if (cmd.name === 'cd') {
-                var p = string.split('/').filter(Boolean);
-                if (p.length === 1) {
-                    if (string[0] === '/') {
-                        callback(dirs(fs));
-                    } else {
-                        callback(dirs(cwd));
-                    }
-                } else {
-                    if (string[0] !== '/') {
-                        p = path.concat(p);
-                    }
-                    if (string[string.length - 1] !== '/') {
-                        p.pop();
-                    }
-                    var prefix = string.replace(/\/[^/]*$/, '');
-                    callback(dirs(restore_cwd(fs, p)).map(function (dir) {
-                        return prefix + '/' + dir;
-                    }));
-                }
-            } else if (cmd.name === 'cat') {
-                var files = Object.keys(cwd).filter(function (key) {
-                    return is_file(cwd[key]);
-                });
-                callback(files);
-            } else {
-                var chatbotCommands = Object.keys(commands);
-                if (cmd.name === 'chatbot') {
-                    callback(chatbotCommands);
-                } else {
-                    callback(chatbotCommands.concat(Object.keys(commands)));
-                }
-            }
-        }
-
-
-
-        var term = $('.content').terminal(commands, {
-            prompt: prompt(),
-            completion: completion,
-            // detect iframe codepen preview
-            enabled: $('body').attr('onload') === undefined
-        });
-
-        // for codepen preview
-        if (!term.enabled()) {
-            term.find('.cursor').addClass('blink');
-        }
-        function prompt(type) {
-            return function (callback) {
-                var prompt;
-                if (type === 'windows') {
-                    prompt = 'C:' + '\\' + 'Users\\' + 'chatbot\\' + path.join('\\') + '> ';
-                } else {
-                    prompt = 'chatbot@host:/' + path.join('/') + '$ ';
-                }
-                $('.title').html(prompt);
-                callback(prompt);
-            };
-        }
-        $('#type').on('change', function () {
-            shell.removeClass('osx windows ubuntu default custom').addClass(this.value);
-            term.toggleClass('underline-animation', this.value == 'windows');
-            term.set_prompt(prompt(this.value));
-        });
-        $('#dark').on('change', function () {
-            shell.removeClass('dark light');
-            if (this.checked) {
-                shell.addClass('dark');
-            } else {
-                shell.addClass('light');
-            }
-        });
-        $('#type, #dark').on('change', function () {
-            setTimeout(function () {
-                term.focus();
-            }, 400);
-        });
-        github & amp; github('jcubic/jquery.terminal');
-        //# sourceURL=pen.js
-    </script>
-
-    <!-- Código para iniciar la conversación con el chatbot automáticamente al cargar la página -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simular la invocación del chatbot al cargar la página
-            term.exec("chatbot");
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-    function ocultarChatbot() {
-        $('.shell-container, .options-shell-container').fadeOut(() => {
-            let boton = $('#mostrar-chatbot');
-            boton.addClass('show bounce'); // Muestra el botón con animación de salto
-        });
-    }
-
-    function mostrarChatbot() {
-        $('.shell-container, .options-shell-container').fadeIn();
-        $('#mostrar-chatbot').removeClass('show bounce'); // Elimina la animación de salto al abrir el chat
-    }
-
-    // 🔴 Botón de cerrar
-    $('.close').click(function () {
-        ocultarChatbot();
-    });
-
-    // 🟢 Botón flotante para mostrar chatbot
-    $('#mostrar-chatbot').click(function () {
-        mostrarChatbot();
-    });
-});
-
-    </script>
 
 
 
@@ -1096,7 +688,7 @@
     <!--Final Codigo de esta pagina-->
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer" style="z-index: 90;"></div>
 
     <!-- socialMedia -->
     <div id="socialMedia"></div>
