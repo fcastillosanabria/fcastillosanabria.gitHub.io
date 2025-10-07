@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <link rel="icon" type="image/png" sizes="192x192" href="img/logoLinux.png">
     <title>Portafolio Digital</title>
@@ -15,17 +17,19 @@
     <!-- CDN Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
 
     <!-- START Loader -->
     <div class="container--loader">
         <div class="loader"></div>
     </div>
-    <!-- END Loader -->  
+    <!-- END Loader -->
 
     <!--Cursor Rojo-->
     <div class="cursor3"></div>
@@ -33,9 +37,9 @@
         const cursor3 = document.querySelector('.cursor3');
 
         document.addEventListener('mousemove', e => {
-            cursor3.setAttribute("style", "top: " + (e.pageY -1) + "px; left: "+ (e.pageX -2) + "px;" )
+            cursor3.setAttribute("style", "top: " + (e.pageY - 1) + "px; left: " + (e.pageX - 2) + "px;")
         })
-    </script>   
+    </script>
 
     <!--Cursor Amarillo-->
     <div class="cursor2"></div>
@@ -43,7 +47,7 @@
         const cursor2 = document.querySelector('.cursor2');
 
         document.addEventListener('mousemove', e => {
-            cursor2.setAttribute("style", "top: " + (e.pageY -1) + "px; left: "+ (e.pageX -2) + "px;" )
+            cursor2.setAttribute("style", "top: " + (e.pageY - 1) + "px; left: " + (e.pageX - 2) + "px;")
         })
     </script>
 
@@ -54,7 +58,7 @@
         const cursor = document.querySelector('.cursor');
 
         document.addEventListener('mousemove', e => {
-            cursor.setAttribute("style", "top: " + (e.pageY -1) + "px; left: "+ (e.pageX -2) + "px;" )
+            cursor.setAttribute("style", "top: " + (e.pageY - 1) + "px; left: " + (e.pageX - 2) + "px;")
         })
     </script>
 
@@ -62,55 +66,140 @@
     <!--Barra Menú-->
     <div id="header"></div>
 
-<!--Inicio Codigo de esta pagina-->
-<section id="resumenError">
-    <div class="container">
-        <div class="img-container"></div>
-        <div class="texto">
-            <h2>ERROR <span class="color-acento">404</span></h2>
-            <br>
-            <p>Seguramente te ha pasado: haces clic en un enlace y este te 
-                redirige automáticamente a una página que muestra un mensaje 
-                que dice que el contenido solicitado no está disponible, a menudo 
-                como "404 Not Found" o "404 page not found". El error 404 es un 
-                código de estado HTTPenviado desde el servidor web al navegador, es 
-                decir, al cliente que hizo la petición HTTP. Es así como el navegador 
-                muestra el código como una página de error.
-                <br>
-                <br>
-                <b><a href="https://www.ionos.es/digitalguide/paginas-web/creacion-de-
-                    paginas-web/que-significa-el-error-404-not-found/" target="_blank" >Presiona aquí</a></p></b>
+    <!-- Sección: Resumen Error -->
+    <section id="resumenError" class="py-5 text-center text-md-start">
+        <div class="container py-5">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="img-container mx-auto"
+                        style="background-image: url('img/ubuntuDañado.png'); background-size: cover; background-position: center; height: 350px; width: 100%; max-width: 518px; border-radius: 10px;">
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center px-4">
+                    <h2>ERROR <span class="text-danger">404</span></h2>
+                    <p class="mt-3 text-justify">
+                        Seguramente te ha pasado: haces clic en un enlace y este te redirige automáticamente a una
+                        página que muestra un mensaje
+                        que dice que el contenido solicitado no está disponible, a menudo como
+                        "404 Not Found" o "404 page not found". El error 404 es un
+                        código de estado HTTP enviado desde el servidor web al navegador.
+                    </p>
+                    <p>
+                        <b><a href="https://www.ionos.es/digitalguide/paginas-web/creacion-de-paginas-web/que-significa-el-error-404-not-found/"
+                                target="_blank" class="text-decoration-none">Presiona aquí</a></b>
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="canalYouTube">
-    <div class="container">
-        <div class="texto">
-            <h2>ERROR <span class="color-acento">404</span></h2>
-            <br>
-            <p>Puedes visitar mi canal de youtube si deseas aprender temas nuevos y aprenderemos 
-                juntos, te espero.
-                <br>
-                See you soon!
-                <br>
-                <br>
-                <b><a href="https://www.youtube.com/@franciscastillosanabria3249" target="_blank" >Visitar canal</a></p></b>
+    <!-- Sección: Canal de YouTube -->
+    <section id="canalYouTube" class="py-5 text-center text-md-start bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center justify-content-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 d-flex flex-column justify-content-center px-4">
+                    <h2>ERROR <span class="text-danger">404</span></h2>
+                    <p class="mt-3 text-justify">
+                        Puedes visitar mi canal de YouTube si deseas aprender temas nuevos y aprenderemos juntos, te
+                        espero.
+                        <br><br>See you soon!
+                    </p>
+                    <p>
+                        <b><a href="https://www.youtube.com/@franciscastillosanabria3249" target="_blank"
+                                class="text-decoration-none">Visitar canal</a></b>
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4 mb-md-0 text-center">
+                    <div class="ratio ratio-16x9">
+                        <div class="ratio ratio-16x9">
+
+                        </div>
+                        <div class="ratio ratio-16x9" id="youtube-latest"></div>
+
+                        <script>
+                            const API_KEY = "AIzaSyCP7MuGIpmSPTK8wumQeTZH74RHRWIA7oI"; // 🔑 Pega aquí tu API Key
+                            const CHANNEL_ID = "UC42L6_bppE3cWVt0s1_trSA"; // 🎥 Tu Channel ID real
+                            async function getLatestNonShort() {
+                                try {
+                                    // 1️⃣ Obtener los últimos 10 videos subidos
+                                    const searchResponse = await fetch(
+                                        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=id&type=video&maxResults=10`
+                                    );
+                                    const searchData = await searchResponse.json();
+
+                                    if (!searchData.items?.length) {
+                                        document.getElementById("youtube-latest").innerHTML = "<p>No se encontraron videos.</p>";
+                                        return;
+                                    }
+
+                                    // 2️⃣ Tomar todos los IDs de esos videos
+                                    const videoIds = searchData.items.map(item => item.id.videoId).join(",");
+
+                                    // 3️⃣ Obtener la duración de cada uno
+                                    const detailsResponse = await fetch(
+                                        `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=contentDetails`
+                                    );
+                                    const detailsData = await detailsResponse.json();
+
+                                    // 4️⃣ Filtrar los que duren más de 60 segundos
+                                    const validVideos = detailsData.items.filter(video => {
+                                        const duration = video.contentDetails.duration;
+                                        const seconds = parseDuration(duration);
+                                        return seconds > 60;
+                                    });
+
+                                    if (!validVideos.length) {
+                                        document.getElementById("youtube-latest").innerHTML = "<p>No hay videos largos disponibles.</p>";
+                                        return;
+                                    }
+
+                                    // 5️⃣ Mostrar el primero que no sea short
+                                    const videoId = validVideos[0].id;
+                                    document.getElementById("youtube-latest").innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}" 
+          title="Último video de YouTube (no Short)"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      `;
+                                } catch (error) {
+                                    console.error("Error al obtener el video:", error);
+                                    document.getElementById("youtube-latest").innerHTML = "<p>Error al conectar con la API de YouTube.</p>";
+                                }
+                            }
+
+                            // 🔍 Función para convertir ISO 8601 a segundos
+                            function parseDuration(isoDuration) {
+                                const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+                                const hours = parseInt(match[1] || 0);
+                                const minutes = parseInt(match[2] || 0);
+                                const seconds = parseInt(match[3] || 0);
+                                return hours * 3600 + minutes * 60 + seconds;
+                            }
+
+                            // 🚀 Ejecutar al cargar la página
+                            getLatestNonShort();
+                        </script>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="img-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/sgua9hWGPj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-            clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </div>
-</section>
+    </section>
+
 
     <!--Codigo de audio de fondo-->
     <center>
-        <audio  autoplay="autoplay" loop="loop" autoplay>
-        <source src="audio/C418 - Subwoofer Lullaby - Minecraft Volume Alpha.mp3" type="audio/mpeg">
+        <audio autoplay="autoplay" loop="loop" autoplay>
+            <source src="audio/C418 - Subwoofer Lullaby - Minecraft Volume Alpha.mp3" type="audio/mpeg">
         </audio>
     </center>
-<!--Final Codigo de esta pagina-->
+    <!--Final Codigo de esta pagina-->
+
+    <!-- socialMedia -->
+    <div id="socialMedia"></div>
 
     <!-- Footer -->
     <div id="footer"></div>
@@ -118,6 +207,7 @@
     <!-- Mi script -->
     <script src="script.js"></script>
     <script defer src="load-components.js"></script>
-    
+
 </body>
+
 </html>

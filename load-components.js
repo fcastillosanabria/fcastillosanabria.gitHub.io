@@ -7,6 +7,11 @@ function loadComponent(selector, file) {
       })
       .then(data => {
         document.querySelector(selector).innerHTML = data;
+        // Si es el footer, actualiza el año automáticamente
+        if (selector === '#footer') {
+          const yearSpan = document.getElementById('copyright-year');
+          if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        }
       })
       .catch(error => console.error(error));
   }
