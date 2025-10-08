@@ -1,3 +1,10 @@
+<style>
+    /** Quitar el ícono de flecha de los enlaces que no son desplegables **/
+    .accordion-button.no-arrow::after {
+        display: none !important;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark px-5 py-2 fixed-top" style="background-color: #000000; z-index: 80;">
     <div class="container-fluid">
 
@@ -39,25 +46,6 @@
         </div>
 
     </div>
-<script>
-// Mostrar el dropdown al pasar el mouse y ocultar al salir
-document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.getElementById('inicioDropdown');
-    var parent = dropdown.closest('.nav-item.dropdown');
-    var menu = parent.querySelector('.dropdown-menu');
-
-    parent.addEventListener('mouseenter', function () {
-        dropdown.classList.add('show');
-        menu.classList.add('show');
-        dropdown.setAttribute('aria-expanded', 'true');
-    });
-    parent.addEventListener('mouseleave', function () {
-        dropdown.classList.remove('show');
-        menu.classList.remove('show');
-        dropdown.setAttribute('aria-expanded', 'false');
-    });
-});
-</script>
 </nav>
 
 <!-- Offcanvas (para pantallas pequeñas) -->
@@ -67,14 +55,47 @@ document.addEventListener('DOMContentLoaded', function () {
         <h5 class="offcanvas-title" id="staticBackdropLabel">Menú</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+
     <div class="offcanvas-body">
-        <ul class="navbar-nav">
-            <li><a class="dropdown-item" href="index.html#sobreMi">Sobre mi</a></li>
-            <li><a class="dropdown-item" href="index.html#proyectos">Proyectos Destacados</a></li>
-            <li><a class="dropdown-item" href="index.html#habilidades">Habilidades técnicas</a></li>
-            <li><a class="dropdown-item" href="servicios.html">Formación</a></li>
-            <li><a class="dropdown-item" href="contactame.html">Contáctame</a></li>
-            <li><a class="dropdown-item" href="publicaciones.html">Mis Publicaciones</a></li>
-        </ul>
+        <!-- 👇 Aquí comienza el acordeón -->
+        <div class="accordion" id="offcanvasAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingInicio">
+                    <button class="accordion-button collapsed text-black" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseInicio" aria-expanded="false" aria-controls="collapseInicio">
+                        Inicio
+                    </button>
+                </h2>
+                <div id="collapseInicio" class="accordion-collapse collapse" aria-labelledby="headingInicio"
+                    data-bs-parent="#offcanvasAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled mb-0">
+                            <li><a class="justify-text dropdown-item" href="index.html#sobreMi">Sobre mí</a></li>
+                            <li><a class="dropdown-item" href="index.html#proyectos">Proyectos Destacados</a></li>
+                            <li><a class="dropdown-item" href="index.html#habilidades">Habilidades técnicas</a></li>
+                            <li><a class="dropdown-item" href="servicios.html">Formación</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <a class="accordion-button no-arrow collapsed text-black" href="contactame.html">
+                        Contáctame
+                    </a>
+                </h2>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <a class="accordion-button no-arrow collapsed text-black" href="publicaciones.html">
+                        Mis Publicaciones
+                    </a>
+                </h2>
+            </div>
+        </div>
+        <!-- 👆 Fin del acordeón -->
     </div>
 </div>
