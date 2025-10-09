@@ -1,0 +1,156 @@
+<style>
+/* ==========================
+   ESTILO GENERAL (Escritorio)
+========================== */
+
+/* Botón flotante */
+#whatsappBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  z-index: 1050;
+}
+
+/* Ventana de chat en pantallas grandes */
+#whatsappChat {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 320px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1050;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Área de mensajes */
+#chatBody {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+/* Burbujas */
+.message {
+  max-width: 75%;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.message.sent {
+  background-color: #dcf8c6;
+  margin-left: auto;
+}
+
+.message.received {
+  background-color: #ffffff;
+}
+
+/* ==========================
+   RESPONSIVE (Móviles)
+========================== */
+@media (max-width: 768px) {
+
+  /* Chat ocupa toda la pantalla */
+  #whatsappChat {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Cabecera fija arriba */
+  #whatsappChat .card-header {
+    flex-shrink: 0;
+    border-radius: 0;
+  }
+
+  /* Área de mensajes flexible */
+  #chatBody {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f8f9fa;
+  }
+
+  /* Footer fijo abajo */
+  #whatsappChat .card-footer {
+    flex-shrink: 0;
+    border-top: 1px solid #ccc;
+    background: #fff;
+  }
+
+  /* Botón flotante más grande */
+  #whatsappBtn {
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Evitar scroll del fondo cuando está abierto el chat */
+  body,
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+/* ==========================
+   AJUSTE PARA TECLADO VIRTUAL
+   (Solo en pantallas pequeñas)
+========================== */
+@media (max-width: 768px) {
+  @supports (height: 100dvh) {
+    #whatsappChat {
+      height: 100dvh; /* Solo se adapta en móviles */
+    }
+  }
+}
+</style>
+
+
+<!-- Botón flotante -->
+<button id="whatsappBtn" class="btn btn-success rounded-circle shadow-lg">
+  <i class="bi bi-whatsapp fs-3"></i>
+</button>
+
+<!-- Ventana de chat estilo WhatsApp -->
+<div id="whatsappChat" class="card shadow-lg d-none">
+  <!-- Cabecera -->
+  <div class="card-header bg-success text-white d-flex align-items-center">
+    <img src="/" class="rounded-circle me-2" alt="Avatar">
+    <div>
+      <h6 class="mb-0">Asistente</h6>
+      <small>En línea</small>
+    </div>
+    <button id="closeChat" class="btn-close btn-close-white ms-auto"></button>
+  </div>
+
+  <!-- Cuerpo de mensajes -->
+  <div id="chatBody" class="card-body overflow-auto bg-light"></div>
+
+  <!-- Input de mensaje -->
+  <div class="card-footer bg-white d-flex">
+    <input id="chatInput" type="text" class="form-control me-2" placeholder="Escribe un mensaje...">
+    <button id="sendBtn" class="btn btn-success">
+      <i class="bi bi-send-fill"></i>
+    </button>
+  </div>
+</div>
