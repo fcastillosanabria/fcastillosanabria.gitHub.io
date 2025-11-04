@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-5 py-2 fixed-top" style="background-color: #000000; z-index: 80;">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+        <!-- Logo -->
+        <a class="navbar-brand m-0 d-flex align-items-center" [routerLink]="['/']">
+            <img src="/assets/img/logoUbuntu.png" alt="Ubuntu Logo" class="img-fluid logo-img" />
+        </a>
+
+        <!-- Botón hamburguesa -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <!-- Enlaces del Navbar -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" id="inicioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ 'NAV.HOME' | translate }}
+          </a>
+                    <ul class="dropdown-menu" aria-labelledby="inicioDropdown">
+                        <li><a class="dropdown-item" [routerLink]="['/']" fragment="sobreMi">Sobre mí</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/']" fragment="proyectos">Proyectos Destacados</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/']" fragment="habilidades">Habilidades técnicas</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a [routerLink]="['/contact']" class="nav-link text-white">{{ 'NAV.CONTACT' | translate }}</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/publications']" class="nav-link text-white">{{ 'NAV.PUBLICATIONS' | translate }}</a>
+                </li>
+
+                <app-language-selector></app-language-selector>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Offcanvas (para pantallas pequeñas) -->
+<div class="offcanvas offcanvas-start bg-dark" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-white" id="staticBackdropLabel">Menú</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <!-- 👇 Aquí comienza el acordeón -->
+        <div class="accordion" id="offcanvasAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingInicio">
+                    <button class="accordion-button collapsed text-white bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInicio" aria-expanded="false" aria-controls="collapseInicio">
+            Home
+          </button>
+                </h2>
+                <div id="collapseInicio" class="accordion-collapse collapse" aria-labelledby="headingInicio" data-bs-parent="#offcanvasAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled mb-0">
+                            <li class="p-3 text-white bg-dark"><a class="dropdown-item" [routerLink]="['/']" fragment="sobreMi" data-bs-dismiss="offcanvas" (click)="closeOffcanvas()">Sobre mí</a></li>
+                            <li class="p-3 text-white bg-dark"><a class="dropdown-item" [routerLink]="['/']" fragment="proyectos" data-bs-dismiss="offcanvas" (click)="closeOffcanvas()">Proyectos Destacados</a></li>
+                            <li class="p-3 text-white bg-dark"><a class="dropdown-item" [routerLink]="['/']" fragment="habilidades" data-bs-dismiss="offcanvas" (click)="closeOffcanvas()">
+                  Habilidades técnicas
+                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <a class="accordion-button no-arrow collapsed text-white bg-dark" [routerLink]="['/contact']" (click)="closeOffcanvas()">
+            Contact me
+          </a>
+                </h2>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <a class="accordion-button no-arrow collapsed text-white bg-dark" [routerLink]="['/publications']" (click)="closeOffcanvas()">
+            My publications
+          </a>
+                </h2>
+            </div>
+        </div>
+        <!-- 👆 Fin del acordeón -->
+    </div>
+</div>

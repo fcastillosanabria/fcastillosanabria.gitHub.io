@@ -1,0 +1,39 @@
+<footer class="text-center text-white py-5" style="background-color: #000000;">
+    <div class="container">
+        <!-- Título -->
+        <a href="https://fcastillosanabria.github.io/" class="text-decoration-none text-reset">
+            <h3 class="mb-4">fcastillosanabria.github.io</h3>
+        </a>
+
+        <!-- Enlaces de navegación -->
+        <ul class="list-inline mb-4">
+            <li class="list-inline-item mx-3"><a [routerLink]="['/home']" class="text-decoration-none text-white">Home</a></li>
+            <li class="list-inline-item mx-3"><a [routerLink]="['/contact']" class="text-decoration-none text-white">Contact me</a></li>
+            <li class="list-inline-item mx-3"><a [routerLink]="['/publications']" class="text-decoration-none text-white">publications</a></li>
+        </ul>
+
+        <!-- Iconos de redes sociales -->
+        <div class="mb-4">
+            <a href="https://github.com/fcastillosanabria" target="_blank" class="btn text-white rounded-circle mx-2" style="background-color: #333;">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/fcastillosanabria/" target="_blank" class="btn btn-primary btn-xl rounded-circle mx-2">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://www.youtube.com/@deJava1703" target="_blank" class="btn btn-danger btn-xl rounded-circle mx-2">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://wa.me/+51934179705" target="_blank" class="btn btn-success btn-xl rounded-circle mx-2">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+        </div>
+
+        <!-- Texto de derechos de autor -->
+        <p class="mb-0 text-white">
+            Copyright © <span>{{ currentYear }}</span> All rights reserved |
+            This template is made by
+            <a [routerLink]="['/']" class="text-decoration-none text-white fw-bold">deJava</a>
+        </p>
+    </div>
+
+</footer>

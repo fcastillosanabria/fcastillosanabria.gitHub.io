@@ -1,0 +1,98 @@
+:host {
+    display: block;
+    background-image: url('/assets/img/fondoWin7.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+/* Ajuste para el header */
+
+#contactanos {
+    padding-top: 7em;
+}
+
+
+/* ----- Imagen y hover ----- */
+
+.image-hover {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.image-hover img {
+    width: 100%;
+    transition: opacity 0.4s ease-in-out;
+    display: block;
+}
+
+
+/* Imagen base visible */
+
+.base-img {
+    opacity: 1;
+    z-index: 1;
+    position: relative;
+    /* para asegurar que no se superponga mal */
+}
+
+
+/* Imagen hover oculta por defecto */
+
+.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+}
+
+
+/* Intercambio de opacidades (definido más abajo junto a comportamiento de hover) */
+
+
+/* ======== Pulso suave ======== */
+
+@keyframes pulse-slow {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Aplica el pulso sólo a la imagen base por defecto (la hover no debe animarse mientras está oculta) */
+
+.base-img {
+    animation: pulse-slow 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.hover-img {
+    transition: transform 0.3s ease;
+    /* permanece oculta (opacity:0) hasta el hover */
+}
+
+
+/* Al hacer hover, mostramos la imagen hover y aplicamos la animación sólo entonces */
+
+.image-hover:hover .base-img {
+    /* ocultamos la base y pausamos su animación para evitar que la animación reestablezca opacidad */
+    opacity: 0;
+    animation-play-state: paused;
+}
+
+.image-hover:hover .hover-img {
+    opacity: 1;
+    animation: pulse-slow 2.5s ease-in-out infinite;
+    transform: scale(1.02);
+}

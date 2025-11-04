@@ -1,0 +1,28 @@
+<!-- Botón flotante -->
+<button id="whatsappBtn" class="btn btn-success rounded-circle shadow-lg">
+  <i class="bi bi-robot fs-3"></i>
+</button>
+
+<!-- Ventana de chat estilo WhatsApp -->
+<div id="whatsappChat" class="card shadow-lg d-none">
+  <!-- Cabecera -->
+  <div class="card-header bg-success text-white d-flex align-items-center">
+    <img src="assets/img/logoChatBot.png" class="rounded-square me-2" alt="Avatar" width="40" height="40">
+    <div>
+      <h6 class="mb-0">Ubuntu ChatBot</h6>
+      <small>En línea</small>
+    </div>
+    <button id="closeChat" class="btn-close btn-close-white ms-auto"></button>
+  </div>
+
+  <!-- Cuerpo de mensajes -->
+  <div id="chatBody" class="card-body overflow-auto bg-light"></div>
+
+  <!-- Input de mensaje -->
+  <div class="card-footer bg-white d-flex">
+    <input id="chatInput" type="text" class="form-control me-2" placeholder="Escribe un mensaje...">
+    <button id="sendBtn" class="btn btn-success">
+      <i class="bi bi-send-fill"></i>
+    </button>
+  </div>
+</div>

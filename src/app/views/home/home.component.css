@@ -1,0 +1,96 @@
+/* Efecto hover para el card project */
+        #projectCard {
+            background-color: #5E2750;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.096);
+            /* Sombra más intensa */
+            transition: all 0.6s ease;
+            /* Transición suave para todos los cambios */
+        }
+
+        /* Cambio de color de fondo y sombra al hacer hover */
+        #projectCard:hover {
+            background-color: #2C001E;
+            /* Forzar el cambio de fondo (rosado claro) */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Sombra más intensa */
+            transform: translateY(-15px);
+            /* Eleva un poco el card */
+            transition: all 0.6s ease;
+            /* Transición suave para todos los cambios */
+        }
+
+        #skillsCard {
+            background-color: #dfdfdf;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.096);
+            /* Sombra más intensa */
+            transition: all 0.3s ease;
+            /* Transición suave para todos los cambios */
+
+        }
+
+        /* Cambio de color de fondo y sombra al hacer hover */
+        #skillsCard:hover {
+            background-color: #5E2750;
+            /* Forzar el cambio de fondo (rosado claro) */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Sombra más intensa */
+            transform: translateY(-5px);
+            /* Eleva un poco el card */
+        }
+
+        #rotating-image {
+          transition: opacity 1s ease-in-out;
+          /* Transición de desvanecido */
+          opacity: 1;
+          /* Imagen visible */
+        }
+
+        #rotating-image.fade-out {
+          opacity: 0;
+        }
+
+        .text-overlay {
+          z-index: 2;
+          color: white;
+        }
+
+        .image-container {
+          z-index: 1;
+        }
+
+        .gradient-text {
+          background: linear-gradient(45deg, #fa9a25, #feeec7);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+
+        /* Efecto de escritura */
+#role {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.1em solid white;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Imagen con fade */
+.rotating-image {
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Botones opcionales */
+.contact-btn {
+  margin-right: 10px;
+}

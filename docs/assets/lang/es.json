@@ -1,0 +1,20 @@
+{
+  "NAV": {
+    "HOME": "Inicio",
+    "CONTACT": "Contáctame",
+    "PUBLICATIONS": "Publicaciones"
+  },
+  "HOME": {
+    "GREETING": "Hola,",
+    "INTRO": "Soy ",
+    "CV": "Ver CV",
+    "CONTACT": "¡Contáctame!",
+    "TITLEPROJECT": "Proyectos Destacados",
+    "PROJET1": "Extensión para navegadores, poteenciada con Google Calendar, pruébalo y mejora tu productividad.",
+    "PROJET2": "Un diccionario virtual bilingüe (Español - Jaqaru) para buscar palabras en Jaqaru y sus definiciones.",
+    "PROJET3": "Generador de certificados UNDC, utilizando los productos gratuitos de Google para su elaboración.",
+    "TRY": "Probar",
+    "SKILLS": "Habilidades"
+  }
+}
+

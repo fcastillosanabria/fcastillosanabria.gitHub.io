@@ -1,0 +1,317 @@
+<app-header></app-header>
+<app-custom-cursor></app-custom-cursor>
+<app-social-media></app-social-media>
+<app-chat-bot></app-chat-bot>
+
+<section class="hero-section d-flex align-items-center min-vh-100 text-white px-5 mt-5" id="sobreMi" style="background-color: #000000; z-index: 60; position: relative;">
+
+    <div class="container" id="sobreMi">
+        <div class="row">
+            <!-- Columna para el texto -->
+            <div class="text-overlay col-12 col-md-6 d-flex flex-column justify-content-center">
+                <h1 class="display-3 fw-bold mb-3">
+                    {{ 'HOME.GREETING' | translate }}<br> {{ 'HOME.INTRO' | translate }} <span class="gradient-text">Francis</span>,<br>
+                    <span id="role">{{ currentRole }}</span>
+                </h1>
+
+                <div>
+                    <a href="https://drive.google.com/file/d/1va5PcIJPkW5l8yKY_IlHYMKgeepQxFAT/view?usp=sharing" target="_blank">
+                        <button class="btn btn-outline-warning px-4 py-2 contact-btn">{{ 'HOME.CV' | translate }}</button>
+                    </a>
+                    <a href="contactame.html">
+                        <button class="btn btn-outline-warning px-4 py-2 contact-btn">{{ 'HOME.CONTACT' | translate }}</button>
+                    </a>
+                </div>
+            </div>
+            <!-- Columna para la imagen -->
+            <div class="image-container col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <img [src]="currentImage" alt="Logo Linux" class="img-fluid rotating-image" [class.fade-out]="isFading" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Proyectos -->
+<section class="container py-5" id="proyectos">
+    <h2 class="text-center mb-5">{{ 'HOME.TITLEPROJECT' | translate }}</h2>
+    <div class="row g-4" id="contenedorProyectos">
+        <!-- Tarjeta 1 -->
+        <div class="col-md-4">
+            <div class="card border-0 text-light h-100" id="projectCard">
+                <img src="assets/img/proyectoQuickCalendar.jpg" class="card-img-top rounded" alt="Proyecto 1">
+                <div class="card-body">
+                    <h5 class="card-title">QuickCalendar – Powered by Google Calendar</h5>
+                    <p class="card-text">{{ 'HOME.PROJET1' | translate }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="https://chromewebstore.google.com/detail/quickcalendar-%E2%80%93-powered-b/gpkpgapohfiajeidfakjcmeljmgjcopp?hl=es-419&utm_source=ext_sidebar" target="_blank" class="btn btn-outline-light">{{ 'HOME.TRY' | translate }}</a>
+                        <div class="text-end">
+                            <!-- Íconos de tecnologías -->
+                            <i class="bi bi-filetype-html fs-5 me-2" title="Html"></i>
+                            <i class="bi bi-bootstrap fs-5 me-2" title="Bootstrap"></i>
+                            <i class="bi bi-filetype-js fs-5 me-2" title="JavaScript"></i>
+                            <i class="bi bi-browser-chrome fs-5 me-2" title="Chrome"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col-md-4">
+            <div class="card border-0 text-light h-100" id="projectCard">
+                <img src="assets/img/proyectoDictionary.png" class="card-img-top rounded" alt="Proyecto 2">
+                <div class="card-body">
+                    <h5 class="card-title">Urpi Dictionary</h5>
+                    <p class="card-text">{{ 'HOME.PROJET2' | translate }}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="https://script.google.com/macros/s/AKfycbxWpJV-mCdXFLKIv3DnCt-WwxF33JQZFE8zmqCWhubqJssq6nRQybxbR6Zct4A5I9zv-A/exec" target="_blank" class="btn btn-outline-light">{{ 'HOME.TRY' | translate }}</a>
+                        <div class="text-end">
+                            <!-- Íconos de tecnologías -->
+                            <i class="bi bi-bootstrap fs-5 me-2" title="Bootstrap"></i>
+                            <i class="bi bi-google fs-5 me-2" title="GoogleAppScript"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-md-4">
+            <div class="card border-0 text-light h-100" id="projectCard">
+                <img src="assets/img/proyectoCertificado.png" class="card-img-top rounded" alt="Proyecto 3">
+                <div class="card-body">
+                    <h5 class="card-title">Certificados UNDC</h5>
+                    <p class="card-text">{{ 'HOME.PROJET3' | translate }}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="https://creadordecertificados.netlify.app/" target="_blank" class="btn btn-outline-light">{{ 'HOME.TRY' | translate }}</a>
+                        <div class="text-end">
+                            <!-- Íconos de tecnologías -->
+                            <i class="bi bi-filetype-html fs-5 me-2" title="Html"></i>
+                            <i class="bi bi-bootstrap fs-5 me-2" title="Bootstrap"></i>
+                            <i class="bi bi-filetype-js fs-5 me-2" title="JavaScript"></i>
+                            <i class="bi bi-google fs-5 me-2" title="Google API"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Habilidades -->
+<section class="py-5 bg-dark text-white" id="habilidades">
+    <div class="container" id="contenedorHabilidades">
+        <h2 class="text-center mb-5">{{ 'HOME.SKILLS' | translate }}</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 d-none d-lg-flex" style="padding-left: 15rem; padding-right: 15rem;">
+            <!-- HTML 5 -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="card-img-top mx-auto" alt="HTML 5" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">HTML 5</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS 3 -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="card-img-top mx-auto" alt="CSS 3" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">CSS 3</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="card-img-top mx-auto" alt="JavaScript" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">JavaScript</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Firebase -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" class="card-img-top mx-auto" alt="Firebase" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Firebase</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MySQL Server -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="card-img-top mx-auto" alt="MySQL Server" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">MySQL Server</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Git -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="card-img-top mx-auto" alt="Git" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Git</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Github -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="card-img-top mx-auto" alt="Github" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Github</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Python -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="card-img-top mx-auto" alt="Python" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Python</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AWS -->
+            <div class="col">
+                <div class="card h-100 rounded-4 text-center p-4" id="skillsCard">
+                    <img src="https://www.svgrepo.com/show/448266/aws.svg" class="card-img-top mx-auto" alt="AWS" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">AWS Cloud</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrusel para pantallas pequeñas -->
+    <div id="skillsCarousel" class="carousel slide d-block d-lg-none" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+
+            <!-- HTML 5 -->
+            <div class="carousel-item active">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="card-img-top mx-auto" alt="HTML 5" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">HTML 5</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS 3 -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="card-img-top mx-auto" alt="CSS 3" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">CSS 3</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="card-img-top mx-auto" alt="JavaScript" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">JavaScript</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Firebase -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" class="card-img-top mx-auto" alt="Firebase" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Firebase</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MySQL Server -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="card-img-top mx-auto" alt="MySQL Server" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">MySQL Server</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Git -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="card-img-top mx-auto" alt="Git" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Git</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Github -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="card-img-top mx-auto" alt="Github" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Github</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Python -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="card-img-top mx-auto" alt="Python" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">Python</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AWS -->
+            <div class="carousel-item">
+                <div class="card h-100 rounded-4 text-center p-4 mx-auto" style="width: 18rem;">
+                    <img src="https://www.svgrepo.com/show/448266/aws.svg" class="card-img-top mx-auto" alt="AWS" style="width: 80px;">
+                    <div class="card-body p-0 pt-3">
+                        <h5 class="card-title mb-0">AWS Cloud</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controles -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#skillsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+    </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#skillsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+    </button>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- Mi script loader -->
+<script src="script.js"></script>
+
+
+<app-footer></app-footer>
