@@ -1,0 +1,8 @@
+Ejecutamos el siguiente comando para generar la aplicación empaquetada de Angular.
+
+Este proceso crea (o actualiza) la carpeta /docs, la cual es utilizada por
+GitHub Pages para renderizar la aplicación en el navegador, ya que estamos
+desplegando un proyecto Angular mediante GitHub Pages.
+====================================================================================
+
+ng build --configuration production --output-path docs --base-href /
