@@ -94,3 +94,28 @@
 .contact-btn {
   margin-right: 10px;
 }
+
+
+
+/* Mobile: ocupa toda la pantalla */
+@media (max-width: 991.98px) {
+  .skills-section {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #skillsCarousel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Desktop: comportamiento normal */
+@media (min-width: 992px) {
+  .skills-section {
+    min-height: auto;
+  }
+}

@@ -3,7 +3,7 @@
 <app-social-media></app-social-media>
 <app-chat-bot></app-chat-bot>
 
-<section class="hero-section d-flex align-items-center min-vh-100 text-white px-5 mt-5" id="sobreMi" style="background-color: #000000; z-index: 60; position: relative;">
+<section class="hero-section d-flex align-items-center min-vh-100 text-white px-5 mt-5" id="sobreMi" style="background-color: #000000; z-index: 10; position: relative;">
 
     <div class="container" id="sobreMi">
         <div class="row">
@@ -101,7 +101,7 @@
 </section>
 
 <!-- Habilidades -->
-<section class="py-5 bg-dark text-white" id="habilidades">
+<section class="py-5 bg-dark text-white skills-section" id="habilidades">
     <div class="container" id="contenedorHabilidades">
         <h2 class="text-center mb-5">{{ 'HOME.SKILLS' | translate }}</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4 d-none d-lg-flex" style="padding-left: 15rem; padding-right: 15rem;">
@@ -198,7 +198,7 @@
     </div>
 
     <!-- Carrusel para pantallas pequeñas -->
-    <div id="skillsCarousel" class="carousel slide d-block d-lg-none" data-bs-ride="carousel" data-bs-interval="2000">
+    <div  class="carousel slide d-block d-lg-none" data-bs-ride="carousel" data-bs-interval="2000">
         <div class="carousel-inner">
 
             <!-- HTML 5 -->

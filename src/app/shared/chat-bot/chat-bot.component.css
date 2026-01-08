@@ -9,7 +9,7 @@
   right: 25px;
   width: 60px;
   height: 60px;
-  z-index: 1050;
+  z-index: 15;
 }
 
 /* Ventana de chat en pantallas grandes */
@@ -26,6 +26,7 @@
   overflow: hidden;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 20;
 }
 
 /* Área de mensajes */
@@ -44,6 +45,7 @@
   border-radius: 12px;
   font-size: 14px;
   line-height: 1.3;
+  white-space: pre-line;
 }
 
 .message.sent {
@@ -54,6 +56,17 @@
 .message.received {
   background-color: #ffffff;
 }
+
+.checks {
+  font-size: 14px;
+  color: #00d5ff;
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+}
+
+
+
 
 /* ==========================
    RESPONSIVE (Móviles)

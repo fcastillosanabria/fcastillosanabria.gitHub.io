@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { PreloaderComponent } from "src/app/shared/preloader/preloader.component";
 
 
 gsap.registerPlugin(ScrollTrigger);
